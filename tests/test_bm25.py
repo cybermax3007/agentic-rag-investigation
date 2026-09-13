@@ -1,35 +1,21 @@
-from backend.retrieval.bm25_retriever import (
-    BM25Retriever
-)
+from backend.retrieval.bm25_retriever import BM25Retriever
 
 
 def main():
-
-    print(
-        "Loading BM25 retriever..."
-    )
+    print("Loading BM25 retriever...")
 
     retriever = BM25Retriever()
 
     print(
-        f"Loaded "
-        f"{len(retriever.documents)} "
-        f"documents."
+        f"Loaded {len(retriever.documents)} documents."
     )
 
     print()
 
-   query = (
-    "thumbprint McFarlane"
-)
+    query = "thumbprint McFarlane"
 
-    print(
-        f"Query: {query}"
-    )
-
-    print(
-        "-" * 60
-    )
+    print(f"Query: {query}")
+    print("-" * 60)
 
     results = retriever.search(
         query=query,
@@ -40,25 +26,19 @@ def main():
         results,
         start=1
     ):
+        print(f"RANK {rank}")
 
         print(
-            f"RANK {rank}"
+            f"Document: {result.document_id}"
         )
 
         print(
-            f"Document: "
-            f"{result.document_id}"
-        )
-
-        print(
-            f"BM25 score: "
-            f"{result.score:.4f}"
+            f"BM25 score: {result.score:.4f}"
         )
 
         print(
             f"Paragraphs: "
-            f"{result.paragraph_start}"
-            f"-"
+            f"{result.paragraph_start}-"
             f"{result.paragraph_end}"
         )
 
@@ -69,14 +49,10 @@ def main():
             .replace("\n", " ")
         )
 
-        print(
-            preview
-        )
+        print(preview)
 
         print()
-        print(
-            "-" * 60
-        )
+        print("-" * 60)
 
 
 if __name__ == "__main__":
