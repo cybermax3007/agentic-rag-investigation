@@ -40,6 +40,12 @@ class InvestigationResult(BaseModel):
     supporting_evidence_ids: list[str] = Field(default_factory=list)
     contradicting_evidence_ids: list[str] = Field(default_factory=list)
     cited_document_ids: list[str] = Field(default_factory=list)
+    needs_more_evidence: bool = False
+    termination_reason: Literal[
+        "sufficient",
+        "retry_limit",
+        "no_next_query",
+    ] = "sufficient"
     trace: list[InvestigatorStep] = Field(default_factory=list)
 
 

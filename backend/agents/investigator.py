@@ -32,6 +32,9 @@ Rules:
 - Every factual conclusion in the final answer must be grounded in supplied
   evidence IDs and document IDs.
 - A theory may be plausible without being proven.
+- If the retry limit is reached while evidence remains insufficient, preserve
+  that uncertainty in the final verdict instead of pretending the case is
+  resolved.
 """
 
 
@@ -47,9 +50,7 @@ class InvestigatorAgent:
         )
 
         if not api_key:
-            raise ValueError(
-                "Gemini API key not found."
-            )
+            raise ValueError("Gemini API key not found.")
 
         self.client = genai.Client(api_key=api_key)
         self.model_name = (
@@ -81,18 +82,12 @@ class InvestigatorAgent:
         if response.parsed is not None:
             if isinstance(response.parsed, schema):
                 return response.parsed
-            return schema.model_validate(
-                response.parsed
-            )
+            return schema.model_validate(response.parsed)
 
-        return schema.model_validate_json(
-            response.text
-        )
+        return schema.model_validate_json(response.text)
 
     @staticmethod
-    def _format_evidence(
-        evidence,
-    ) -> str:
+    def _format_evidence(evidence) -> str:
         blocks = []
 
         for item in evidence:
@@ -120,27 +115,27 @@ class InvestigatorAgent:
     ) -> InvestigationResult:
         theory = (
             initial_theory
-            or f"Initial working theory for: {question}"
+            or (
+                "No prior theory supplied. Form a cautious working theory "
+                "from the retrieved evidence."
+            )
         )
 
         query = question
         trace: list[InvestigatorStep] = []
-
         seen_evidence = OrderedDict()
 
-        for iteration in range(
-            1,
-            max_iterations + 1,
-        ):
+        last_decision: SufficiencyDecision | None = None
+        termination_reason = "retry_limit"
+
+        for iteration in range(1, max_iterations + 1):
             retrieved = self.store.search(
                 query=query,
                 top_k=top_k,
             )
 
             for item in retrieved:
-                seen_evidence[
-                    item.evidence_id
-                ] = item
+                seen_evidence[item.evidence_id] = item
 
             evidence_text = self._format_evidence(
                 list(seen_evidence.values())
@@ -150,18 +145,20 @@ class InvestigatorAgent:
 QUESTION:
 {question}
 
-CURRENT THEORY:
+CURRENT WORKING THEORY:
 {theory}
 
 RETRIEVED EVIDENCE:
 {evidence_text}
 
-Evaluate whether the current evidence is sufficient to answer the question
+Evaluate whether the accumulated evidence is sufficient to answer the question
 responsibly.
 
+You must revise the working theory based on the evidence, even if the evidence
+is insufficient.
+
 If insufficient:
-- explain the precise gap;
-- revise the working theory if needed;
+- explain the precise evidence gap;
 - produce one focused next_query designed to retrieve missing or adversarial
   evidence.
 
@@ -173,6 +170,7 @@ If sufficient:
                 decision_prompt,
                 SufficiencyDecision,
             )
+            last_decision = decision
 
             trace.append(
                 InvestigatorStep(
@@ -198,30 +196,38 @@ If sufficient:
             theory = decision.revised_theory
 
             if decision.sufficient:
+                termination_reason = "sufficient"
                 break
 
             if not decision.next_query:
+                termination_reason = "no_next_query"
                 break
 
             query = decision.next_query
 
-        all_evidence = list(
-            seen_evidence.values()
+        needs_more_evidence = not (
+            last_decision is not None
+            and last_decision.sufficient
         )
 
-        evidence_text = self._format_evidence(
-            all_evidence
-        )
+        all_evidence = list(seen_evidence.values())
+        evidence_text = self._format_evidence(all_evidence)
 
         final_prompt = f"""
 QUESTION:
 {question}
 
-INITIAL THEORY:
+INITIAL INPUT THEORY:
 {initial_theory or "None supplied"}
 
 FINAL WORKING THEORY:
 {theory}
+
+TERMINATION:
+{termination_reason}
+
+EVIDENCE STILL INSUFFICIENT:
+{needs_more_evidence}
 
 AGENT TRACE:
 {json.dumps([step.model_dump() for step in trace], indent=2)}
@@ -234,6 +240,7 @@ Return the final grounded investigation result.
 Requirements:
 - verdict must be concise and cautious;
 - reasoning_summary must distinguish verified facts from unverified claims;
+- if EVIDENCE STILL INSUFFICIENT is true, explicitly state the unresolved gap;
 - supporting_evidence_ids and contradicting_evidence_ids may contain ONLY
   evidence IDs visible above;
 - cited_document_ids may contain ONLY document IDs visible above;
@@ -276,16 +283,16 @@ Requirements:
             question=question,
             initial_theory=(
                 initial_theory
-                or trace[0].theory
+                or "No prior user theory supplied."
             ),
             final_theory=final_answer.final_theory,
             verdict=final_answer.verdict,
             confidence=final_answer.confidence,
-            reasoning_summary=(
-                final_answer.reasoning_summary
-            ),
+            reasoning_summary=final_answer.reasoning_summary,
             supporting_evidence_ids=supporting,
             contradicting_evidence_ids=contradicting,
             cited_document_ids=documents,
+            needs_more_evidence=needs_more_evidence,
+            termination_reason=termination_reason,
             trace=trace,
         )

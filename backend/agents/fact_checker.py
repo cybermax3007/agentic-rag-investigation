@@ -42,9 +42,7 @@ class FactCheckerAgent:
         )
 
         if not api_key:
-            raise ValueError(
-                "Gemini API key not found."
-            )
+            raise ValueError("Gemini API key not found.")
 
         self.client = genai.Client(api_key=api_key)
         self.model_name = (
@@ -59,14 +57,31 @@ class FactCheckerAgent:
         investigation: InvestigationResult,
         top_k: int = 10,
     ) -> FactCheckResult:
-        query = (
-            f"contradictions alternative explanation weaknesses "
-            f"against theory: {investigation.final_theory}"
-        )
+        theory = investigation.final_theory
 
-        evidence = self.store.search(
-            query=query,
+        adversarial_queries = [
+            (
+                "contradictions counter-evidence weaknesses against theory: "
+                f"{theory}"
+            ),
+            (
+                "alternative explanation staged disappearance framing "
+                f"against theory: {theory}"
+            ),
+            (
+                "timeline conflict alive body remains hidden room "
+                f"against theory: {theory}"
+            ),
+            (
+                "evidence supporting another candidate or interpretation "
+                f"against theory: {theory}"
+            ),
+        ]
+
+        evidence = self.store.search_many(
+            adversarial_queries,
             top_k=top_k,
+            per_query_k=max(8, top_k),
         )
 
         evidence_text = "\n\n---\n\n".join(
@@ -87,6 +102,9 @@ class FactCheckerAgent:
         prompt = f"""
 INVESTIGATOR RESULT:
 {json.dumps(investigation.model_dump(), indent=2)}
+
+ADVERSARIAL SEARCH INTENTS:
+{json.dumps(adversarial_queries, indent=2)}
 
 INDEPENDENT ADVERSARIAL RETRIEVAL:
 {evidence_text}
@@ -118,10 +136,7 @@ Return a concise adversarial assessment.
         )
 
         if response.parsed is not None:
-            if isinstance(
-                response.parsed,
-                FactCheckResult,
-            ):
+            if isinstance(response.parsed, FactCheckResult):
                 result = response.parsed
             else:
                 result = FactCheckResult.model_validate(
@@ -151,6 +166,12 @@ Return a concise adversarial assessment.
         result.challenged_evidence_ids = [
             item
             for item in result.challenged_evidence_ids
+            if item in valid_evidence_ids
+        ]
+
+        result.evidence_for_alternatives = [
+            item
+            for item in result.evidence_for_alternatives
             if item in valid_evidence_ids
         ]
 

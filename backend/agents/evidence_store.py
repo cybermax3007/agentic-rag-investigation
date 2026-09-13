@@ -1,5 +1,4 @@
 import json
-import math
 import re
 from pathlib import Path
 
@@ -21,10 +20,15 @@ def tokenize(text: str) -> list[str]:
 
 class AgentEvidenceStore:
     """
-    Hybrid evidence retrieval for the agent layer.
+    Evidence-level hybrid RAG index.
 
-    Retrieval unit = canonical EvidenceClaim, enriched with its source excerpt.
-    BM25 and MiniLM rankings are fused using Reciprocal Rank Fusion (RRF).
+    - lexical arm: BM25
+    - semantic arm: all-MiniLM-L6-v2 cosine similarity
+    - fusion: Reciprocal Rank Fusion (RRF)
+
+    The agent layer retrieves canonical EvidenceClaim records rather than
+    unconstrained text chunks, so every returned item already carries a
+    stable evidence ID, document ID, epistemic status, and verbatim excerpt.
     """
 
     def __init__(
@@ -48,6 +52,10 @@ class AgentEvidenceStore:
         }
 
         self.evidence = self.case.evidence
+        self.evidence_by_id = {
+            item.evidence_id: item
+            for item in self.evidence
+        }
 
         self.search_texts = [
             " ".join(
@@ -85,10 +93,7 @@ class AgentEvidenceStore:
         top_k: int,
     ) -> list[int]:
         scores = self.bm25.get_scores(tokenize(query))
-
-        return list(
-            np.argsort(scores)[::-1][:top_k]
-        )
+        return list(np.argsort(scores)[::-1][:top_k])
 
     def _semantic_rank(
         self,
@@ -106,8 +111,25 @@ class AgentEvidenceStore:
             dtype=np.float32,
         )
 
-        return list(
-            np.argsort(scores)[::-1][:top_k]
+        return list(np.argsort(scores)[::-1][:top_k])
+
+    def _to_result(
+        self,
+        index: int,
+        score: float,
+        source: str,
+    ) -> RetrievedEvidence:
+        item = self.evidence[index]
+
+        return RetrievedEvidence(
+            evidence_id=item.evidence_id,
+            document_id=item.document_id,
+            claim=item.claim,
+            status=item.status,
+            evidence_type=item.evidence_type,
+            source_excerpt=item.source_excerpt,
+            score=float(score),
+            source=source,
         )
 
     def search(
@@ -118,30 +140,17 @@ class AgentEvidenceStore:
     ) -> list[RetrievedEvidence]:
         pool = min(candidate_pool, len(self.evidence))
 
-        bm25_rank = self._bm25_rank(
-            query,
-            pool,
-        )
-
-        semantic_rank = self._semantic_rank(
-            query,
-            pool,
-        )
+        bm25_rank = self._bm25_rank(query, pool)
+        semantic_rank = self._semantic_rank(query, pool)
 
         fused: dict[int, float] = {}
 
-        for rank, index in enumerate(
-            bm25_rank,
-            start=1,
-        ):
+        for rank, index in enumerate(bm25_rank, start=1):
             fused[index] = fused.get(index, 0.0) + (
                 1.0 / (self.rrf_k + rank)
             )
 
-        for rank, index in enumerate(
-            semantic_rank,
-            start=1,
-        ):
+        for rank, index in enumerate(semantic_rank, start=1):
             fused[index] = fused.get(index, 0.0) + (
                 1.0 / (self.rrf_k + rank)
             )
@@ -152,10 +161,73 @@ class AgentEvidenceStore:
             reverse=True,
         )[:top_k]
 
-        results = []
+        return [
+            self._to_result(index, score, "hybrid_rrf")
+            for index, score in ranked
+        ]
 
-        for index, score in ranked:
-            item = self.evidence[index]
+    def search_many(
+        self,
+        queries: list[str],
+        top_k: int = 10,
+        per_query_k: int = 12,
+    ) -> list[RetrievedEvidence]:
+        """
+        Multi-query adversarial retrieval.
+
+        Each query gets an independent hybrid ranking. Their result ranks are
+        then fused again with RRF. This is useful for the Fact-Checker because
+        "contradictions", "timeline conflicts", and "alternative explanations"
+        are distinct retrieval intents.
+        """
+        fused: dict[str, float] = {}
+
+        for query in queries:
+            results = self.search(
+                query,
+                top_k=per_query_k,
+                candidate_pool=max(20, per_query_k),
+            )
+
+            for rank, result in enumerate(results, start=1):
+                fused[result.evidence_id] = (
+                    fused.get(result.evidence_id, 0.0)
+                    + 1.0 / (self.rrf_k + rank)
+                )
+
+        ranked_ids = sorted(
+            fused.items(),
+            key=lambda item: item[1],
+            reverse=True,
+        )[:top_k]
+
+        index_by_id = {
+            item.evidence_id: index
+            for index, item in enumerate(self.evidence)
+        }
+
+        return [
+            self._to_result(
+                index_by_id[evidence_id],
+                score,
+                "multi_query_rrf",
+            )
+            for evidence_id, score in ranked_ids
+        ]
+
+    def get_by_ids(
+        self,
+        evidence_ids: list[str],
+    ) -> tuple[list[RetrievedEvidence], list[str]]:
+        results: list[RetrievedEvidence] = []
+        missing: list[str] = []
+
+        for evidence_id in evidence_ids:
+            item = self.evidence_by_id.get(evidence_id)
+
+            if item is None:
+                missing.append(evidence_id)
+                continue
 
             results.append(
                 RetrievedEvidence(
@@ -165,9 +237,9 @@ class AgentEvidenceStore:
                     status=item.status,
                     evidence_type=item.evidence_type,
                     source_excerpt=item.source_excerpt,
-                    score=float(score),
-                    source="hybrid_rrf",
+                    score=1.0,
+                    source="explicit_citation",
                 )
             )
 
-        return results
+        return results, missing
