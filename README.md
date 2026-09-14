@@ -458,4 +458,4 @@ Completed:
 
 Live app: https://agentic-rag-investigation-lrvtys9izujk3m38nytqtu.streamlit.app
 
-Demo video: _coming soon_
+Demo video: (https://github.com/cybermax3007/agentic-rag-investigation/tree/main/demo)
