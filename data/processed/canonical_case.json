@@ -1,0 +1,2379 @@
+{
+  "case_id": "norwood_builder",
+  "entities": [
+    {
+      "entity_id": "ENT_001",
+      "canonical_name": "Bert Stevens",
+      "entity_type": "person",
+      "aliases": [],
+      "document_ids": [
+        "DOC_010"
+      ],
+      "mention_count": 1,
+      "description": "Murderer"
+    },
+    {
+      "entity_id": "ENT_002",
+      "canonical_name": "Inspector Lestrade",
+      "entity_type": "person",
+      "aliases": [
+        "Lestrade",
+        "Mr. Lestrade"
+      ],
+      "document_ids": [
+        "DOC_003",
+        "DOC_004",
+        "DOC_006",
+        "DOC_007",
+        "DOC_008",
+        "DOC_009",
+        "DOC_010",
+        "DOC_011",
+        "DOC_012",
+        "DOC_013",
+        "DOC_014",
+        "DOC_015",
+        "DOC_016"
+      ],
+      "mention_count": 13,
+      "description": "Detective; Inspector of Scotland Yard conducting the criminal investigation; Police Inspector; Police detective; Police investigator; Police investigator from Scotland Yard; Police official; Scotland Yard inspector; detective; police investigator; police official"
+    },
+    {
+      "entity_id": "ENT_003",
+      "canonical_name": "John Hector McFarlane",
+      "entity_type": "person",
+      "aliases": [
+        "John McFarlane",
+        "McFarlane",
+        "Mr. John Hector McFarlane",
+        "Mr. McFarlane"
+      ],
+      "document_ids": [
+        "DOC_001",
+        "DOC_002",
+        "DOC_003",
+        "DOC_004",
+        "DOC_005",
+        "DOC_006",
+        "DOC_007",
+        "DOC_008",
+        "DOC_009",
+        "DOC_010",
+        "DOC_011",
+        "DOC_012",
+        "DOC_015",
+        "DOC_016"
+      ],
+      "mention_count": 14,
+      "description": "Accused individual targeted by Oldacre's scheme; Accused person; Client / Accused; Client / Suspect; Client accused of the crime; Client seeking Sherlock Holmes's help while facing imminent arrest for murder.; Client, accused person; Frantic visitor to Holmes's rooms; Lawyer who drafted a will for Jonas Oldacre; Suspect / client seeking protection; suspect; suspect / heir-at-law; young London solicitor, junior partner of Graham and McFarlane, suspect"
+    },
+    {
+      "entity_id": "ENT_004",
+      "canonical_name": "Jonas Oldacre",
+      "entity_type": "person",
+      "aliases": [
+        "Mr. Jonas Oldacre",
+        "Mr. Oldacre",
+        "Oldacre"
+      ],
+      "document_ids": [
+        "DOC_002",
+        "DOC_003",
+        "DOC_004",
+        "DOC_005",
+        "DOC_006",
+        "DOC_007",
+        "DOC_008",
+        "DOC_009",
+        "DOC_010",
+        "DOC_014",
+        "DOC_015",
+        "DOC_016"
+      ],
+      "mention_count": 12,
+      "description": "Builder / Hiding individual; Builder from Lower Norwood who was murdered.; Client who had his will drawn up leaving property to McFarlane; Mastermind of the disappearance and revenge scheme; Property owner, former suitor; Victim / Builder; Victim / Deceased; Victim / subject of investigation; builder, resident of Deep Dene House, missing person; missing witness / hidden person; victim / older man; will author / testator"
+    },
+    {
+      "entity_id": "ENT_005",
+      "canonical_name": "Mr. Cornelius",
+      "entity_type": "person",
+      "aliases": [
+        "Cornelius"
+      ],
+      "document_ids": [
+        "DOC_011",
+        "DOC_016"
+      ],
+      "mention_count": 2,
+      "description": "Alias used by Oldacre for banking and financial operations; Recipient of large checks from bank-book"
+    },
+    {
+      "entity_id": "ENT_006",
+      "canonical_name": "Mrs. Lexington",
+      "entity_type": "person",
+      "aliases": [],
+      "document_ids": [
+        "DOC_010",
+        "DOC_012"
+      ],
+      "mention_count": 2,
+      "description": "Housekeeper"
+    },
+    {
+      "entity_id": "ENT_007",
+      "canonical_name": "Mrs. McFarlane",
+      "entity_type": "person",
+      "aliases": [
+        "McFarlane's mother"
+      ],
+      "document_ids": [
+        "DOC_009",
+        "DOC_016"
+      ],
+      "mention_count": 2,
+      "description": "Mother of John McFarlane, former fiancée of Jonas Oldacre; Woman who once refused Oldacre"
+    },
+    {
+      "entity_id": "ENT_008",
+      "canonical_name": "Murillo",
+      "entity_type": "person",
+      "aliases": [
+        "ex-President Murillo"
+      ],
+      "document_ids": [
+        "DOC_001"
+      ],
+      "mention_count": 1,
+      "description": "Subject of a prior case involving his papers"
+    },
+    {
+      "entity_id": "ENT_009",
+      "canonical_name": "night constable",
+      "entity_type": "person",
+      "aliases": [],
+      "document_ids": [
+        "DOC_012"
+      ],
+      "mention_count": 1,
+      "description": "Police officer on guard"
+    },
+    {
+      "entity_id": "ENT_010",
+      "canonical_name": "Oldacre's father",
+      "entity_type": "person",
+      "aliases": [],
+      "document_ids": [
+        "DOC_008"
+      ],
+      "mention_count": 1,
+      "description": "Father of Oldacre"
+    },
+    {
+      "entity_id": "ENT_011",
+      "canonical_name": "Oldacre's mother",
+      "entity_type": "person",
+      "aliases": [],
+      "document_ids": [
+        "DOC_008"
+      ],
+      "mention_count": 1,
+      "description": "Mother of Oldacre"
+    },
+    {
+      "entity_id": "ENT_012",
+      "canonical_name": "Professor Moriarty",
+      "entity_type": "person",
+      "aliases": [],
+      "document_ids": [
+        "DOC_001"
+      ],
+      "mention_count": 1,
+      "description": "Deceased criminal mastermind"
+    },
+    {
+      "entity_id": "ENT_013",
+      "canonical_name": "Sherlock Holmes",
+      "entity_type": "person",
+      "aliases": [
+        "Holmes",
+        "Mr. Holmes",
+        "Mr. Sherlock Holmes"
+      ],
+      "document_ids": [
+        "DOC_001",
+        "DOC_002",
+        "DOC_003",
+        "DOC_004",
+        "DOC_005",
+        "DOC_006",
+        "DOC_007",
+        "DOC_009",
+        "DOC_011",
+        "DOC_012",
+        "DOC_013",
+        "DOC_014",
+        "DOC_015",
+        "DOC_016"
+      ],
+      "mention_count": 14,
+      "description": "Detective; Detective consulted by John Hector McFarlane.; Investigator; Investigator interviewing McFarlane; detective; investigator"
+    },
+    {
+      "entity_id": "ENT_014",
+      "canonical_name": "Verner",
+      "entity_type": "person",
+      "aliases": [],
+      "document_ids": [
+        "DOC_001"
+      ],
+      "mention_count": 1,
+      "description": "Young doctor and distant relation of Holmes"
+    },
+    {
+      "entity_id": "ENT_015",
+      "canonical_name": "Watson",
+      "entity_type": "person",
+      "aliases": [
+        "Dr. Watson",
+        "John Watson"
+      ],
+      "document_ids": [
+        "DOC_001",
+        "DOC_002",
+        "DOC_008",
+        "DOC_010",
+        "DOC_011",
+        "DOC_013",
+        "DOC_014",
+        "DOC_015",
+        "DOC_016"
+      ],
+      "mention_count": 9,
+      "description": "Companion and narrator; Holmes's associate and medical companion; Holmes's historian; Investigative companion; Narrator and associate of Holmes; Narrator and companion to Sherlock Holmes.; Recorder or writer of the account; assistant and historian; companion and assistant"
+    },
+    {
+      "entity_id": "ENT_016",
+      "canonical_name": "Anerley Arms",
+      "entity_type": "place",
+      "aliases": [],
+      "document_ids": [
+        "DOC_005",
+        "DOC_006"
+      ],
+      "mention_count": 2,
+      "description": "Inn where McFarlane spent the night; lodging for the night"
+    },
+    {
+      "entity_id": "ENT_017",
+      "canonical_name": "Baker Street",
+      "entity_type": "place",
+      "aliases": [],
+      "document_ids": [
+        "DOC_001"
+      ],
+      "mention_count": 1,
+      "description": "Residence of Holmes and Watson"
+    },
+    {
+      "entity_id": "ENT_018",
+      "canonical_name": "Blackheath",
+      "entity_type": "place",
+      "aliases": [],
+      "document_ids": [
+        "DOC_004",
+        "DOC_005",
+        "DOC_006",
+        "DOC_008",
+        "DOC_016"
+      ],
+      "mention_count": 5,
+      "description": "Location mentioned in investigation background; Location of residence; Location visited by Holmes; McFarlane's home area; destination/location"
+    },
+    {
+      "entity_id": "ENT_019",
+      "canonical_name": "Deep Dene House",
+      "entity_type": "place",
+      "aliases": [],
+      "document_ids": [
+        "DOC_003",
+        "DOC_009",
+        "DOC_011"
+      ],
+      "mention_count": 3,
+      "description": "Jonas Oldacre's house in Norwood; Suburban villa in Norwood; residence of Jonas Oldacre at Lower Norwood"
+    },
+    {
+      "entity_id": "ENT_020",
+      "canonical_name": "Kensington",
+      "entity_type": "place",
+      "aliases": [],
+      "document_ids": [
+        "DOC_001"
+      ],
+      "mention_count": 1,
+      "description": "Location of Watson's former practice"
+    },
+    {
+      "entity_id": "ENT_021",
+      "canonical_name": "London Bridge",
+      "entity_type": "place",
+      "aliases": [],
+      "document_ids": [
+        "DOC_006"
+      ],
+      "mention_count": 1,
+      "description": "railway destination"
+    },
+    {
+      "entity_id": "ENT_022",
+      "canonical_name": "London Bridge Station",
+      "entity_type": "place",
+      "aliases": [],
+      "document_ids": [
+        "DOC_002",
+        "DOC_004"
+      ],
+      "mention_count": 2,
+      "description": "Location where McFarlane was followed.; Transit station"
+    },
+    {
+      "entity_id": "ENT_023",
+      "canonical_name": "Lower Norwood",
+      "entity_type": "place",
+      "aliases": [],
+      "document_ids": [
+        "DOC_002"
+      ],
+      "mention_count": 1,
+      "description": "Location of the crime and disappearance."
+    },
+    {
+      "entity_id": "ENT_024",
+      "canonical_name": "Norwood",
+      "entity_type": "place",
+      "aliases": [
+        "Lower Norwood"
+      ],
+      "document_ids": [
+        "DOC_002",
+        "DOC_004",
+        "DOC_005",
+        "DOC_006",
+        "DOC_007",
+        "DOC_008",
+        "DOC_016"
+      ],
+      "mention_count": 6,
+      "description": "Location mentioned in investigation background; Location of Oldacre's house; Location of hotel and crime; Location of the crime or investigation; location; location of investigation"
+    },
+    {
+      "entity_id": "ENT_025",
+      "canonical_name": "Torrington Lodge",
+      "entity_type": "place",
+      "aliases": [],
+      "document_ids": [
+        "DOC_004"
+      ],
+      "mention_count": 1,
+      "description": "McFarlane residence"
+    },
+    {
+      "entity_id": "ENT_026",
+      "canonical_name": "Graham and McFarlane",
+      "entity_type": "organization",
+      "aliases": [],
+      "document_ids": [
+        "DOC_003"
+      ],
+      "mention_count": 1,
+      "description": "solicitor firm at 426, Gresham Buildings, E.C."
+    },
+    {
+      "entity_id": "ENT_027",
+      "canonical_name": "Hyams",
+      "entity_type": "organization",
+      "aliases": [],
+      "document_ids": [
+        "DOC_009"
+      ],
+      "mention_count": 1,
+      "description": "Tailor"
+    },
+    {
+      "entity_id": "ENT_028",
+      "canonical_name": "Scotland Yard",
+      "entity_type": "organization",
+      "aliases": [],
+      "document_ids": [
+        "DOC_003",
+        "DOC_004"
+      ],
+      "mention_count": 2,
+      "description": "Police force; police organization"
+    },
+    {
+      "entity_id": "ENT_029",
+      "canonical_name": "Daily Telegraph",
+      "entity_type": "object",
+      "aliases": [],
+      "document_ids": [
+        "DOC_002"
+      ],
+      "mention_count": 1,
+      "description": "Newspaper containing reports about the Norwood affair."
+    },
+    {
+      "entity_id": "ENT_030",
+      "canonical_name": "Friesland",
+      "entity_type": "object",
+      "aliases": [
+        "Dutch steamship Friesland"
+      ],
+      "document_ids": [
+        "DOC_001"
+      ],
+      "mention_count": 1,
+      "description": "Dutch steamship involved in a prior case"
+    }
+  ],
+  "evidence": [
+    {
+      "evidence_id": "EV_001",
+      "document_id": "DOC_001",
+      "claim": "John Hector McFarlane arrived at Baker Street in a wild-eyed, frantic, pale, and disheveled state, beating on the outer door and bursting into the room.",
+      "evidence_type": "observation",
+      "status": "verified",
+      "source_speaker": null,
+      "source_excerpt": "a tremendous ring at the bell, followed immediately by a hollow drumming sound, as if someone were beating on the outer door with his fist. As it opened there came a tumultuous rush into the hall, rapid feet clattered up the stair, and an instant later a wild-eyed and frantic young man, pale, disheveled, and palpitating, burst into the room.",
+      "is_grounded": true,
+      "entity_ids": [
+        "ENT_003",
+        "ENT_017"
+      ],
+      "entity_names": [
+        "John Hector McFarlane",
+        "Baker Street"
+      ],
+      "supports": [],
+      "contradicts": []
+    },
+    {
+      "evidence_id": "EV_002",
+      "document_id": "DOC_001",
+      "claim": "John Hector McFarlane identified himself to Sherlock Holmes.",
+      "evidence_type": "testimony",
+      "status": "unverified",
+      "source_speaker": "John Hector McFarlane",
+      "source_excerpt": "Mr. Holmes, I am the unhappy John Hector McFarlane.",
+      "is_grounded": true,
+      "entity_ids": [
+        "ENT_003",
+        "ENT_013"
+      ],
+      "entity_names": [
+        "John Hector McFarlane",
+        "Sherlock Holmes"
+      ],
+      "supports": [],
+      "contradicts": []
+    },
+    {
+      "evidence_id": "EV_003",
+      "document_id": "DOC_002",
+      "claim": "McFarlane expects to be arrested for the murder of Mr. Jonas Oldacre.",
+      "evidence_type": "testimony",
+      "status": "unverified",
+      "source_speaker": "John Hector McFarlane",
+      "source_excerpt": "Upon the charge of murdering Mr. Jonas Oldacre, of Lower Norwood.",
+      "is_grounded": true,
+      "entity_ids": [
+        "ENT_003",
+        "ENT_004"
+      ],
+      "entity_names": [
+        "John Hector McFarlane",
+        "Jonas Oldacre"
+      ],
+      "supports": [
+        "case against McFarlane"
+      ],
+      "contradicts": []
+    },
+    {
+      "evidence_id": "EV_004",
+      "document_id": "DOC_002",
+      "claim": "McFarlane states he has been followed from London Bridge Station and expects an arrest warrant.",
+      "evidence_type": "testimony",
+      "status": "unverified",
+      "source_speaker": "John Hector McFarlane",
+      "source_excerpt": "I have been followed from London Bridge Station, and I am sure that they are only waiting for the warrant to arrest me.",
+      "is_grounded": true,
+      "entity_ids": [
+        "ENT_003",
+        "ENT_022"
+      ],
+      "entity_names": [
+        "John Hector McFarlane",
+        "London Bridge Station"
+      ],
+      "supports": [
+        "case against McFarlane"
+      ],
+      "contradicts": []
+    },
+    {
+      "evidence_id": "EV_005",
+      "document_id": "DOC_002",
+      "claim": "A newspaper headline in the Daily Telegraph reports a mysterious affair at Lower Norwood involving the disappearance of a well-known builder and suspicion of murder and arson.",
+      "evidence_type": "documentary",
+      "status": "unverified",
+      "source_speaker": "John Hector McFarlane",
+      "source_excerpt": "The headlines are: ‘Mysterious Affair at Lower Norwood. Disappearance of a Well-known Builder. Suspicion of Murder and Arson. A Clue to the Criminal.’",
+      "is_grounded": true,
+      "entity_ids": [
+        "ENT_029",
+        "ENT_024",
+        "ENT_004"
+      ],
+      "entity_names": [
+        "Daily Telegraph",
+        "Lower Norwood",
+        "Jonas Oldacre"
+      ],
+      "supports": [
+        "Oldacre disappearance"
+      ],
+      "contradicts": []
+    },
+    {
+      "evidence_id": "EV_006",
+      "document_id": "DOC_002",
+      "claim": "Holmes deduced from McFarlane's appearance that he is a bachelor, a solicitor, a Freemason, and an asthmatic.",
+      "evidence_type": "observation",
+      "status": "unverified",
+      "source_speaker": "Sherlock Holmes",
+      "source_excerpt": "beyond the obvious facts that you are a bachelor, a solicitor, a Freemason, and an asthmatic, I know nothing whatever about you.",
+      "is_grounded": true,
+      "entity_ids": [
+        "ENT_013",
+        "ENT_003"
+      ],
+      "entity_names": [
+        "Sherlock Holmes",
+        "John Hector McFarlane"
+      ],
+      "supports": [],
+      "contradicts": []
+    },
+    {
+      "evidence_id": "EV_007",
+      "document_id": "DOC_003",
+      "claim": "A stack at the timber-yard behind Deep Dene House caught fire around twelve o'clock last night and was entirely consumed.",
+      "evidence_type": "observation",
+      "status": "unverified",
+      "source_speaker": null,
+      "source_excerpt": "a small timber-yard still exists, however, at the back of the house, and last night, about twelve o’clock, an alarm was given that one of the stacks was on fire. The engines were soon upon the spot, but the dry wood burned with great fury, and it was impossible to arrest the conflagration until the stack had been entirely consumed.",
+      "is_grounded": true,
+      "entity_ids": [],
+      "entity_names": [],
+      "supports": [],
+      "contradicts": []
+    },
+    {
+      "evidence_id": "EV_008",
+      "document_id": "DOC_003",
+      "claim": "Jonas Oldacre disappeared from his house and was absent from the scene of the fire.",
+      "evidence_type": "observation",
+      "status": "unverified",
+      "source_speaker": null,
+      "source_excerpt": "Surprise was expressed at the absence of the master of the establishment from the scene of the fire, and an inquiry followed, which showed that he had disappeared from the house.",
+      "is_grounded": true,
+      "entity_ids": [],
+      "entity_names": [],
+      "supports": [],
+      "contradicts": []
+    },
+    {
+      "evidence_id": "EV_009",
+      "document_id": "DOC_003",
+      "claim": "An examination of Oldacre's room revealed the bed had not been slept in, an open safe, scattered papers, signs of a murderous struggle, slight traces of blood, and an oaken walking-stick with blood stains on the handle.",
+      "evidence_type": "physical",
+      "status": "unverified",
+      "source_speaker": null,
+      "source_excerpt": "An examination of his room revealed that the bed had not been slept in, that a safe which stood in it was open, that a number of important papers were scattered about the room, and finally, that there were signs of a murderous struggle, slight traces of blood being found within the room, and an oaken walking-stick, which also showed stains of blood upon the handle.",
+      "is_grounded": true,
+      "entity_ids": [],
+      "entity_names": [],
+      "supports": [],
+      "contradicts": []
+    },
+    {
+      "evidence_id": "EV_010",
+      "document_id": "DOC_003",
+      "claim": "The blood-stained oaken walking-stick found in the room has been identified as belonging to John Hector McFarlane.",
+      "evidence_type": "testimony",
+      "status": "unverified",
+      "source_speaker": null,
+      "source_excerpt": "an oaken walking-stick, which also showed stains of blood upon the handle. It is known that Mr. Jonas Oldacre had received a late visitor in his bedroom upon that night, and the stick found has been identified as the property of this person, who is a young London solicitor named John Hector McFarlane",
+      "is_grounded": true,
+      "entity_ids": [],
+      "entity_names": [],
+      "supports": [],
+      "contradicts": []
+    },
+    {
+      "evidence_id": "EV_011",
+      "document_id": "DOC_003",
+      "claim": "The police believe they possess evidence supplying a convincing motive for the crime.",
+      "evidence_type": "motive",
+      "status": "unverified",
+      "source_speaker": null,
+      "source_excerpt": "The police believe that they have evidence in their possession which supplies a very convincing motive for the crime",
+      "is_grounded": true,
+      "entity_ids": [],
+      "entity_names": [],
+      "supports": [],
+      "contradicts": []
+    },
+    {
+      "evidence_id": "EV_012",
+      "document_id": "DOC_003",
+      "claim": "A warrant has been issued and it is rumoured that John Hector McFarlane has been arrested for the murder of Jonas Oldacre.",
+      "evidence_type": "testimony",
+      "status": "unverified",
+      "source_speaker": null,
+      "source_excerpt": "It is rumoured as we go to press that Mr. John Hector McFarlane has actually been arrested on the charge of the murder of Mr. Jonas Oldacre. It is at least certain that a warrant has been issued.",
+      "is_grounded": true,
+      "entity_ids": [],
+      "entity_names": [],
+      "supports": [],
+      "contradicts": []
+    },
+    {
+      "evidence_id": "EV_013",
+      "document_id": "DOC_003",
+      "claim": "French windows of Oldacre's ground floor bedroom were found open, marks suggested a bulky object was dragged to the wood-pile, and charred remains were found among the charcoal ashes.",
+      "evidence_type": "physical",
+      "status": "unverified",
+      "source_speaker": null,
+      "source_excerpt": "it is now known that the French windows of his bedroom (which is on the ground floor) were found to be open, that there were marks as if some bulky object had been dragged across to the wood-pile, and, finally, it is asserted that charred remains have been found among the charcoal ashes of the fire.",
+      "is_grounded": true,
+      "entity_ids": [],
+      "entity_names": [],
+      "supports": [],
+      "contradicts": []
+    },
+    {
+      "evidence_id": "EV_014",
+      "document_id": "DOC_003",
+      "claim": "The police theory is that the victim was clubbed to death in his bedroom, his papers rifled, his body dragged to the wood-stack, and the stack ignited to hide traces of the crime.",
+      "evidence_type": "testimony",
+      "status": "unverified",
+      "source_speaker": "police",
+      "source_excerpt": "The police theory is that a most sensational crime has been committed, that the victim was clubbed to death in his own bedroom, his papers rifled, and his dead body dragged across to the wood-stack, which was then ignited so as to hide all traces of the crime.",
+      "is_grounded": true,
+      "entity_ids": [],
+      "entity_names": [],
+      "supports": [
+        "case against McFarlane"
+      ],
+      "contradicts": []
+    },
+    {
+      "evidence_id": "EV_015",
+      "document_id": "DOC_004",
+      "claim": "John Hector McFarlane states he lives at Torrington Lodge, Blackheath, with his parents.",
+      "evidence_type": "testimony",
+      "status": "unverified",
+      "source_speaker": "John Hector McFarlane",
+      "source_excerpt": "I live at Torrington Lodge, Blackheath, with my parents, Mr. Holmes, but last night, having to do business very late with Mr. Jonas Oldacre, I stayed at an hotel in Norwood, and came to my business from there.",
+      "is_grounded": true,
+      "entity_ids": [
+        "ENT_003",
+        "ENT_025",
+        "ENT_018",
+        "ENT_013",
+        "ENT_004",
+        "ENT_024"
+      ],
+      "entity_names": [
+        "John Hector McFarlane",
+        "Torrington Lodge",
+        "Blackheath",
+        "Sherlock Holmes",
+        "Jonas Oldacre",
+        "Norwood"
+      ],
+      "supports": [],
+      "contradicts": []
+    },
+    {
+      "evidence_id": "EV_016",
+      "document_id": "DOC_004",
+      "claim": "John Hector McFarlane states he stayed at an hotel in Norwood last night due to doing business very late with Jonas Oldacre.",
+      "evidence_type": "testimony",
+      "status": "unverified",
+      "source_speaker": "John Hector McFarlane",
+      "source_excerpt": "last night, having to do business very late with Mr. Jonas Oldacre, I stayed at an hotel in Norwood, and came to my business from there.",
+      "is_grounded": true,
+      "entity_ids": [
+        "ENT_003",
+        "ENT_004",
+        "ENT_024"
+      ],
+      "entity_names": [
+        "John Hector McFarlane",
+        "Jonas Oldacre",
+        "Norwood"
+      ],
+      "supports": [],
+      "contradicts": []
+    },
+    {
+      "evidence_id": "EV_017",
+      "document_id": "DOC_004",
+      "claim": "John Hector McFarlane claims he knew nothing of the affair until reading about it in the train.",
+      "evidence_type": "testimony",
+      "status": "unverified",
+      "source_speaker": "John Hector McFarlane",
+      "source_excerpt": "I knew nothing of this affair until I was in the train, when I read what you have just heard.",
+      "is_grounded": true,
+      "entity_ids": [
+        "ENT_003"
+      ],
+      "entity_names": [
+        "John Hector McFarlane"
+      ],
+      "supports": [],
+      "contradicts": []
+    },
+    {
+      "evidence_id": "EV_018",
+      "document_id": "DOC_004",
+      "claim": "John Hector McFarlane states a man followed him from London Bridge Station.",
+      "evidence_type": "testimony",
+      "status": "unverified",
+      "source_speaker": "John Hector McFarlane",
+      "source_excerpt": "A man followed me from London Bridge Station, and I have no doubt—Great heaven! what is that?",
+      "is_grounded": true,
+      "entity_ids": [
+        "ENT_003",
+        "ENT_022"
+      ],
+      "entity_names": [
+        "John Hector McFarlane",
+        "London Bridge Station"
+      ],
+      "supports": [],
+      "contradicts": []
+    },
+    {
+      "evidence_id": "EV_019",
+      "document_id": "DOC_004",
+      "claim": "Lestrade arrives and arrests John Hector McFarlane for the wilful murder of Jonas Oldacre.",
+      "evidence_type": "observation",
+      "status": "verified",
+      "source_speaker": null,
+      "source_excerpt": "“Mr. John Hector McFarlane?” said Lestrade. Our unfortunate client rose with a ghastly face. “I arrest you for the wilful murder of Mr. Jonas Oldacre, of Lower Norwood.”",
+      "is_grounded": true,
+      "entity_ids": [
+        "ENT_002",
+        "ENT_003",
+        "ENT_004",
+        "ENT_024"
+      ],
+      "entity_names": [
+        "Lestrade",
+        "John Hector McFarlane",
+        "Jonas Oldacre",
+        "Norwood"
+      ],
+      "supports": [
+        "case against McFarlane"
+      ],
+      "contradicts": []
+    },
+    {
+      "evidence_id": "EV_020",
+      "document_id": "DOC_004",
+      "claim": "John Hector McFarlane states his parents were acquainted with Jonas Oldacre many years ago before drifting apart.",
+      "evidence_type": "testimony",
+      "status": "unverified",
+      "source_speaker": "John Hector McFarlane",
+      "source_excerpt": "His name was familiar to me, for many years ago my parents were acquainted with him, but they drifted apart.",
+      "is_grounded": true,
+      "entity_ids": [
+        "ENT_003",
+        "ENT_004"
+      ],
+      "entity_names": [
+        "John Hector McFarlane",
+        "Jonas Oldacre"
+      ],
+      "supports": [],
+      "contradicts": []
+    },
+    {
+      "evidence_id": "EV_021",
+      "document_id": "DOC_004",
+      "claim": "John Hector McFarlane states Jonas Oldacre walked into his city office yesterday at about three o'clock in the afternoon.",
+      "evidence_type": "testimony",
+      "status": "unverified",
+      "source_speaker": "John Hector McFarlane",
+      "source_excerpt": "when yesterday, about three o’clock in the afternoon, he walked into my office in the city.",
+      "is_grounded": true,
+      "entity_ids": [
+        "ENT_003",
+        "ENT_004"
+      ],
+      "entity_names": [
+        "John Hector McFarlane",
+        "Jonas Oldacre"
+      ],
+      "supports": [],
+      "contradicts": []
+    },
+    {
+      "evidence_id": "EV_022",
+      "document_id": "DOC_004",
+      "claim": "John Hector McFarlane states Jonas Oldacre brought several sheets of a notebook covered with scribbled writing as his will and asked McFarlane to put it into proper legal shape.",
+      "evidence_type": "testimony",
+      "status": "unverified",
+      "source_speaker": "John Hector McFarlane",
+      "source_excerpt": "He had in his hand several sheets of a notebook, covered with scribbled writing—here they are—and he laid them on my table. “‘Here is my will,’ said he. ‘I want you, Mr. McFarlane, to cast it into proper legal shape. I will sit here while you do so.’\"",
+      "is_grounded": true,
+      "entity_ids": [
+        "ENT_003",
+        "ENT_004"
+      ],
+      "entity_names": [
+        "John Hector McFarlane",
+        "Jonas Oldacre"
+      ],
+      "supports": [],
+      "contradicts": []
+    },
+    {
+      "evidence_id": "EV_023",
+      "document_id": "DOC_005",
+      "claim": "Oldacre had a will drafted leaving all his property to McFarlane, with some reservations.",
+      "evidence_type": "testimony",
+      "status": "unverified",
+      "source_speaker": "McFarlane",
+      "source_excerpt": "I set myself to copy it, and you can imagine my astonishment when I found that, with some reservations, he had left all his property to me.",
+      "is_grounded": true,
+      "entity_ids": [
+        "ENT_003",
+        "ENT_004"
+      ],
+      "entity_names": [
+        "McFarlane",
+        "Jonas Oldacre"
+      ],
+      "supports": [],
+      "contradicts": []
+    },
+    {
+      "evidence_id": "EV_024",
+      "document_id": "DOC_005",
+      "claim": "The will was signed, witnessed by McFarlane's clerk, and is on blue paper with rough draft slips.",
+      "evidence_type": "testimony",
+      "status": "unverified",
+      "source_speaker": "McFarlane",
+      "source_excerpt": "The will was duly finished, signed, and witnessed by my clerk. This is it on the blue paper, and these slips, as I have explained, are the rough draft.",
+      "is_grounded": true,
+      "entity_ids": [
+        "ENT_003"
+      ],
+      "entity_names": [
+        "McFarlane"
+      ],
+      "supports": [],
+      "contradicts": []
+    },
+    {
+      "evidence_id": "EV_025",
+      "document_id": "DOC_005",
+      "claim": "Oldacre asked McFarlane to come to his house at Norwood that night with the will and not to say a word to his parents about it.",
+      "evidence_type": "testimony",
+      "status": "unverified",
+      "source_speaker": "McFarlane",
+      "source_excerpt": "Mr. Jonas Oldacre then informed me that there were a number of documents—building leases, title-deeds, mortgages, scrip, and so forth—which it was necessary that I should see and understand. He said that his mind would not be easy until the whole thing was settled, and he begged me to come out to his house at Norwood that night, bringing the will with me, and to arrange matters. ‘Remember, my boy, not one word to your parents about the affair until everything is settled.'",
+      "is_grounded": true,
+      "entity_ids": [
+        "ENT_004",
+        "ENT_003",
+        "ENT_024"
+      ],
+      "entity_names": [
+        "Jonas Oldacre",
+        "McFarlane",
+        "Norwood"
+      ],
+      "supports": [],
+      "contradicts": []
+    },
+    {
+      "evidence_id": "EV_026",
+      "document_id": "DOC_005",
+      "claim": "McFarlane arrived at Oldacre's house at nearly half-past nine after having difficulty finding it.",
+      "evidence_type": "testimony",
+      "status": "unverified",
+      "source_speaker": "McFarlane",
+      "source_excerpt": "Mr. Oldacre had told me that he would like me to have supper with him at nine, as he might not be home before that hour. I had some difficulty in finding his house, however, and it was nearly half-past before I reached it.",
+      "is_grounded": true,
+      "entity_ids": [
+        "ENT_004",
+        "ENT_003"
+      ],
+      "entity_names": [
+        "Jonas Oldacre",
+        "McFarlane"
+      ],
+      "supports": [],
+      "contradicts": []
+    },
+    {
+      "evidence_id": "EV_027",
+      "document_id": "DOC_005",
+      "claim": "A middle-aged woman housekeeper opened the door at Oldacre's house and mentioned McFarlane's name.",
+      "evidence_type": "testimony",
+      "status": "unverified",
+      "source_speaker": "McFarlane",
+      "source_excerpt": "“A middle-aged woman, who was, I suppose, his housekeeper.”\n\n“And it was she, I presume, who mentioned your name?”\n\n“Exactly,” said McFarlane.",
+      "is_grounded": true,
+      "entity_ids": [
+        "ENT_003"
+      ],
+      "entity_names": [
+        "McFarlane"
+      ],
+      "supports": [],
+      "contradicts": []
+    },
+    {
+      "evidence_id": "EV_028",
+      "document_id": "DOC_005",
+      "claim": "Oldacre and McFarlane reviewed documents in Oldacre's bedroom from between eleven and twelve.",
+      "evidence_type": "testimony",
+      "status": "unverified",
+      "source_speaker": "McFarlane",
+      "source_excerpt": "Afterwards, Mr. Jonas Oldacre led me into his bedroom, in which there stood a heavy safe. This he opened and took out a mass of documents, which we went over together. It was between eleven and twelve when we finished.",
+      "is_grounded": true,
+      "entity_ids": [
+        "ENT_004",
+        "ENT_003"
+      ],
+      "entity_names": [
+        "Jonas Oldacre",
+        "McFarlane"
+      ],
+      "supports": [],
+      "contradicts": []
+    },
+    {
+      "evidence_id": "EV_029",
+      "document_id": "DOC_006",
+      "claim": "McFarlane left Jonas Oldacre with the safe open and papers made up in packets upon the table.",
+      "evidence_type": "testimony",
+      "status": "unverified",
+      "source_speaker": "John Hector McFarlane",
+      "source_excerpt": "I left him there, the safe open, and the papers made up in packets upon the table.",
+      "is_grounded": true,
+      "entity_ids": [
+        "ENT_003",
+        "ENT_004"
+      ],
+      "entity_names": [
+        "John Hector McFarlane",
+        "Jonas Oldacre"
+      ],
+      "supports": [],
+      "contradicts": []
+    },
+    {
+      "evidence_id": "EV_030",
+      "document_id": "DOC_006",
+      "claim": "McFarlane spent the night at the Anerley Arms because it was too late to get back to Blackheath.",
+      "evidence_type": "testimony",
+      "status": "unverified",
+      "source_speaker": "John Hector McFarlane",
+      "source_excerpt": "It was so late that I could not get back to Blackheath, so I spent the night at the Anerley Arms",
+      "is_grounded": true,
+      "entity_ids": [
+        "ENT_003",
+        "ENT_018",
+        "ENT_016"
+      ],
+      "entity_names": [
+        "John Hector McFarlane",
+        "Blackheath",
+        "Anerley Arms"
+      ],
+      "supports": [],
+      "contradicts": []
+    },
+    {
+      "evidence_id": "EV_031",
+      "document_id": "DOC_006",
+      "claim": "Lestrade had constables at the door and a four-wheeler waiting, and took McFarlane away in the cab.",
+      "evidence_type": "observation",
+      "status": "verified",
+      "source_speaker": null,
+      "source_excerpt": "Now, Mr. McFarlane, two of my constables are at the door, and there is a four-wheeler waiting.” The wretched young man arose, and with a last beseeching glance at us walked from the room. The officers conducted him to the cab",
+      "is_grounded": true,
+      "entity_ids": [
+        "ENT_003",
+        "ENT_002"
+      ],
+      "entity_names": [
+        "John Hector McFarlane",
+        "Lestrade"
+      ],
+      "supports": [],
+      "contradicts": []
+    },
+    {
+      "evidence_id": "EV_032",
+      "document_id": "DOC_006",
+      "claim": "Holmes theorizes that the will was written in a train on a suburban line, with good writing representing stations, bad writing movement, and very bad writing passing over points.",
+      "evidence_type": "testimony",
+      "status": "unverified",
+      "source_speaker": "Sherlock Holmes",
+      "source_excerpt": "That it was written in a train. The good writing represents stations, the bad writing movement, and the very bad writing passing over points. A scientific expert would pronounce at once that this was drawn up on a suburban line",
+      "is_grounded": true,
+      "entity_ids": [],
+      "entity_names": [],
+      "supports": [],
+      "contradicts": []
+    },
+    {
+      "evidence_id": "EV_033",
+      "document_id": "DOC_006",
+      "claim": "Holmes asserts the will was drawn up by Jonas Oldacre in his journey yesterday, suggesting he did not think it was going to be of much practical importance.",
+      "evidence_type": "testimony",
+      "status": "unverified",
+      "source_speaker": "Sherlock Holmes",
+      "source_excerpt": "Well, it corroborates the young man’s story to the extent that the will was drawn up by Jonas Oldacre in his journey yesterday. It is curious—is it not?—that a man should draw up so important a document in so haphazard a fashion. It suggests that he did not think it was going to be of much practical importance.",
+      "is_grounded": true,
+      "entity_ids": [
+        "ENT_004"
+      ],
+      "entity_names": [
+        "Jonas Oldacre"
+      ],
+      "supports": [
+        "McFarlane involvement"
+      ],
+      "contradicts": []
+    },
+    {
+      "evidence_id": "EV_034",
+      "document_id": "DOC_007",
+      "claim": "Lestrade outlines a theory that a young man learned he would succeed to a fortune if an older man died, visited him, murdered him in his room, burned his body in the wood-pile, and left his own stick and slight blood-stains behind.",
+      "evidence_type": "testimony",
+      "status": "unverified",
+      "source_speaker": "Lestrade",
+      "source_excerpt": "Here is a young man who learns suddenly that, if a certain older man dies, he will succeed to a fortune. What does he do? He says nothing to anyone, but he arranges that he shall go out on some pretext to see his client that night. He waits until the only other person in the house is in bed, and then in the solitude of a man’s room he murders him, burns his body in the wood-pile, and departs to a neighbouring hotel. The blood-stains in the room and also on the stick are very slight.",
+      "is_grounded": true,
+      "entity_ids": [],
+      "entity_names": [],
+      "supports": [
+        "case against McFarlane"
+      ],
+      "contradicts": []
+    },
+    {
+      "evidence_id": "EV_035",
+      "document_id": "DOC_007",
+      "claim": "Holmes proposes an alternative theory that a passing tramp saw valuable documents through a half-down window, entered after the solicitor left, killed Oldacre with a stick, and burned the body to hide evidence of the murder.",
+      "evidence_type": "testimony",
+      "status": "unverified",
+      "source_speaker": "Sherlock Holmes",
+      "source_excerpt": "The older man is showing documents which are of evident value. A passing tramp sees them through the window, the blind of which is only half down. Exit the solicitor. Enter the tramp! He seizes a stick, which he observes there, kills Oldacre, and departs after burning the body.",
+      "is_grounded": true,
+      "entity_ids": [],
+      "entity_names": [],
+      "supports": [],
+      "contradicts": []
+    },
+    {
+      "evidence_id": "EV_036",
+      "document_id": "DOC_007",
+      "claim": "Lestrade notes that, as far as is known, none of the papers were removed from the scene.",
+      "evidence_type": "testimony",
+      "status": "unverified",
+      "source_speaker": "Lestrade",
+      "source_excerpt": "Just notice this point, Mr. Holmes: that so far as we know, none of the papers were removed",
+      "is_grounded": true,
+      "entity_ids": [],
+      "entity_names": [],
+      "supports": [],
+      "contradicts": []
+    },
+    {
+      "evidence_id": "EV_037",
+      "document_id": "DOC_007",
+      "claim": "Lestrade states that the prisoner is the only person who had no reason to remove the papers because he was the heir-at-law and would inherit them.",
+      "evidence_type": "testimony",
+      "status": "unverified",
+      "source_speaker": "Lestrade",
+      "source_excerpt": "and that the prisoner is the one man in the world who had no reason for removing them, since he was heir-at-law, and would come into them in any case.",
+      "is_grounded": true,
+      "entity_ids": [],
+      "entity_names": [],
+      "supports": [
+        "case against McFarlane"
+      ],
+      "contradicts": []
+    },
+    {
+      "evidence_id": "EV_038",
+      "document_id": "DOC_008",
+      "claim": "Holmes's first movement was in the direction of Blackheath.",
+      "evidence_type": "timeline",
+      "status": "verified",
+      "source_speaker": null,
+      "source_excerpt": "“My first movement Watson,” said he, as he bustled into his frockcoat, “must, as I said, be in the direction of Blackheath.”",
+      "is_grounded": true,
+      "entity_ids": [
+        "ENT_015",
+        "ENT_018"
+      ],
+      "entity_names": [
+        "Watson",
+        "Blackheath"
+      ],
+      "supports": [],
+      "contradicts": []
+    },
+    {
+      "evidence_id": "EV_039",
+      "document_id": "DOC_008",
+      "claim": "Holmes believed Lestrade was on the right track and their own track was wrong.",
+      "evidence_type": "testimony",
+      "status": "unverified",
+      "source_speaker": "Watson",
+      "source_excerpt": "“It’s all going wrong, Watson—all as wrong as it can go. I kept a bold face before Lestrade, but, upon my soul, I believe that for once the fellow is on the right track and we are on the wrong.”",
+      "is_grounded": true,
+      "entity_ids": [
+        "ENT_015",
+        "ENT_002"
+      ],
+      "entity_names": [
+        "Watson",
+        "Lestrade"
+      ],
+      "supports": [],
+      "contradicts": []
+    },
+    {
+      "evidence_id": "EV_040",
+      "document_id": "DOC_008",
+      "claim": "Holmes visited Blackheath and found Oldacre was a blackguard.",
+      "evidence_type": "testimony",
+      "status": "unverified",
+      "source_speaker": "Watson",
+      "source_excerpt": "“Yes, Watson, I went there, and I found very quickly that the late lamented Oldacre was a pretty considerable blackguard.”",
+      "is_grounded": true,
+      "entity_ids": [
+        "ENT_018",
+        "ENT_004"
+      ],
+      "entity_names": [
+        "Blackheath",
+        "Oldacre"
+      ],
+      "supports": [],
+      "contradicts": []
+    },
+    {
+      "evidence_id": "EV_041",
+      "document_id": "DOC_008",
+      "claim": "Oldacre's father was away in search of his son.",
+      "evidence_type": "testimony",
+      "status": "unverified",
+      "source_speaker": "Watson",
+      "source_excerpt": "The father was away in search of his son.",
+      "is_grounded": true,
+      "entity_ids": [
+        "ENT_010"
+      ],
+      "entity_names": [
+        "Oldacre's father"
+      ],
+      "supports": [],
+      "contradicts": []
+    },
+    {
+      "evidence_id": "EV_042",
+      "document_id": "DOC_008",
+      "claim": "Oldacre's mother was at home in a tremor of fear and indignation, would not admit the possibility of his guilt, and spoke of Oldacre with bitterness.",
+      "evidence_type": "testimony",
+      "status": "unverified",
+      "source_speaker": "Watson",
+      "source_excerpt": "The mother was at home—a little, fluffy, blue-eyed person, in a tremor of fear and indignation. Of course, she would not admit even the possibility of his guilt. But she would not express either surprise or regret over the fate of Oldacre. On the contrary, she spoke of him with such bitterness that she was unconsciously considerably strengthening the case of the police",
+      "is_grounded": true,
+      "entity_ids": [
+        "ENT_011",
+        "ENT_004"
+      ],
+      "entity_names": [
+        "Oldacre's mother",
+        "Oldacre"
+      ],
+      "supports": [
+        "case against McFarlane"
+      ],
+      "contradicts": []
+    },
+    {
+      "evidence_id": "EV_043",
+      "document_id": "DOC_008",
+      "claim": "Oldacre's mother described Oldacre as more like a malignant and cunning ape than a human being.",
+      "evidence_type": "testimony",
+      "status": "unverified",
+      "source_speaker": "Oldacre's mother",
+      "source_excerpt": "‘He was more like a malignant and cunning ape than a human being,’ said she, ‘and he always was, ever since he was a young man.’",
+      "is_grounded": true,
+      "entity_ids": [
+        "ENT_004",
+        "ENT_011"
+      ],
+      "entity_names": [
+        "Oldacre",
+        "Oldacre's mother"
+      ],
+      "supports": [],
+      "contradicts": []
+    },
+    {
+      "evidence_id": "EV_044",
+      "document_id": "DOC_009",
+      "claim": "Mrs. McFarlane was formerly engaged to Jonas Oldacre and broke it off after hearing a story of his cruelty.",
+      "evidence_type": "testimony",
+      "status": "unverified",
+      "source_speaker": "Mrs. McFarlane",
+      "source_excerpt": "I was engaged to him, Mr. Holmes, when I heard a shocking story of how he had turned a cat loose in an aviary, and I was so horrified at his brutal cruelty that I would have nothing more to do with him.",
+      "is_grounded": true,
+      "entity_ids": [],
+      "entity_names": [],
+      "supports": [],
+      "contradicts": []
+    },
+    {
+      "evidence_id": "EV_045",
+      "document_id": "DOC_009",
+      "claim": "Mrs. McFarlane stated that neither she nor her son want anything from Jonas Oldacre, dead or alive.",
+      "evidence_type": "testimony",
+      "status": "unverified",
+      "source_speaker": "Mrs. McFarlane",
+      "source_excerpt": "Neither my son nor I want anything from Jonas Oldacre, dead or alive!",
+      "is_grounded": true,
+      "entity_ids": [],
+      "entity_names": [],
+      "supports": [],
+      "contradicts": []
+    },
+    {
+      "evidence_id": "EV_046",
+      "document_id": "DOC_009",
+      "claim": "Traces showed that some body or bundle had been dragged through a low privet hedge in a line with the wood-pile.",
+      "evidence_type": "observation",
+      "status": "verified",
+      "source_speaker": null,
+      "source_excerpt": "Nothing was to be seen save that some body or bundle had been dragged through a low privet hedge which is in a line with the wood-pile.",
+      "is_grounded": true,
+      "entity_ids": [],
+      "entity_names": [],
+      "supports": [],
+      "contradicts": []
+    },
+    {
+      "evidence_id": "EV_047",
+      "document_id": "DOC_009",
+      "claim": "Blood-stains in Oldacre's bedroom were slight, mere smears and discolourations, but undoubtedly fresh.",
+      "evidence_type": "physical",
+      "status": "verified",
+      "source_speaker": null,
+      "source_excerpt": "The blood-stains were very slight, mere smears and discolourations, but undoubtedly fresh.",
+      "is_grounded": true,
+      "entity_ids": [],
+      "entity_names": [],
+      "supports": [],
+      "contradicts": []
+    },
+    {
+      "evidence_id": "EV_048",
+      "document_id": "DOC_009",
+      "claim": "The walking stick belonging to the client had been removed from the bedroom.",
+      "evidence_type": "physical",
+      "status": "verified",
+      "source_speaker": null,
+      "source_excerpt": "The stick had been removed, but there also the marks were slight. There is no doubt about the stick belonging to our client. He admits it.",
+      "is_grounded": true,
+      "entity_ids": [],
+      "entity_names": [],
+      "supports": [],
+      "contradicts": []
+    },
+    {
+      "evidence_id": "EV_049",
+      "document_id": "DOC_009",
+      "claim": "Footmarks of both men could be made out on the carpet in Oldacre's bedroom, but none of any third person.",
+      "evidence_type": "physical",
+      "status": "verified",
+      "source_speaker": null,
+      "source_excerpt": "Footmarks of both men could be made out on the carpet, but none of any third person, which again is a trick for the other side.",
+      "is_grounded": true,
+      "entity_ids": [],
+      "entity_names": [],
+      "supports": [],
+      "contradicts": []
+    },
+    {
+      "evidence_id": "EV_050",
+      "document_id": "DOC_010",
+      "claim": "Blood-stains in the bedroom were very slight, mere smears and discolourations, but undoubtedly fresh.",
+      "evidence_type": "observation",
+      "status": "verified",
+      "source_speaker": null,
+      "source_excerpt": "The blood-stains were very slight, mere smears and discolourations, but undoubtedly fresh.",
+      "is_grounded": true,
+      "entity_ids": [],
+      "entity_names": [],
+      "supports": [],
+      "contradicts": []
+    },
+    {
+      "evidence_id": "EV_051",
+      "document_id": "DOC_010",
+      "claim": "The stick belonged to the client, and the client admits it.",
+      "evidence_type": "testimony",
+      "status": "unverified",
+      "source_speaker": "Sherlock Holmes",
+      "source_excerpt": "There is no doubt about the stick belonging to our client. He admits it.",
+      "is_grounded": true,
+      "entity_ids": [
+        "ENT_003"
+      ],
+      "entity_names": [
+        "John Hector McFarlane"
+      ],
+      "supports": [],
+      "contradicts": []
+    },
+    {
+      "evidence_id": "EV_052",
+      "document_id": "DOC_010",
+      "claim": "Footmarks of both men could be made out on the carpet, but none of any third person.",
+      "evidence_type": "observation",
+      "status": "verified",
+      "source_speaker": null,
+      "source_excerpt": "Footmarks of both men could be made out on the carpet, but none of any third person, which again is a trick for the other side.",
+      "is_grounded": true,
+      "entity_ids": [],
+      "entity_names": [],
+      "supports": [],
+      "contradicts": []
+    },
+    {
+      "evidence_id": "EV_053",
+      "document_id": "DOC_010",
+      "claim": "Safe contents had been taken out and left on the table, with papers made up into sealed envelopes, and some opened by the police.",
+      "evidence_type": "observation",
+      "status": "verified",
+      "source_speaker": null,
+      "source_excerpt": "I examined the contents of the safe, most of which had been taken out and left on the table. The papers had been made up into sealed envelopes, one or two of which had been opened by the police.",
+      "is_grounded": true,
+      "entity_ids": [],
+      "entity_names": [],
+      "supports": [],
+      "contradicts": []
+    },
+    {
+      "evidence_id": "EV_054",
+      "document_id": "DOC_010",
+      "claim": "Bank-book did not show that Mr. Oldacre was in very affluent circumstances.",
+      "evidence_type": "observation",
+      "status": "verified",
+      "source_speaker": null,
+      "source_excerpt": "nor did the bank-book show that Mr. Oldacre was in such very affluent circumstances.",
+      "is_grounded": true,
+      "entity_ids": [
+        "ENT_004"
+      ],
+      "entity_names": [
+        "Jonas Oldacre"
+      ],
+      "supports": [],
+      "contradicts": []
+    },
+    {
+      "evidence_id": "EV_055",
+      "document_id": "DOC_010",
+      "claim": "Certain deeds alluded to in papers were missing from the safe.",
+      "evidence_type": "observation",
+      "status": "verified",
+      "source_speaker": null,
+      "source_excerpt": "There were allusions to some deeds—possibly the more valuable—which I could not find.",
+      "is_grounded": true,
+      "entity_ids": [],
+      "entity_names": [],
+      "supports": [],
+      "contradicts": []
+    },
+    {
+      "evidence_id": "EV_056",
+      "document_id": "DOC_010",
+      "claim": "Mrs. Lexington stated she let Mr. McFarlane in at half-past nine.",
+      "evidence_type": "testimony",
+      "status": "unverified",
+      "source_speaker": "Mrs. Lexington",
+      "source_excerpt": "Yes, she had let Mr. McFarlane in at half-past nine.",
+      "is_grounded": true,
+      "entity_ids": [
+        "ENT_006",
+        "ENT_003"
+      ],
+      "entity_names": [
+        "Mrs. Lexington",
+        "John Hector McFarlane"
+      ],
+      "supports": [],
+      "contradicts": []
+    },
+    {
+      "evidence_id": "EV_057",
+      "document_id": "DOC_010",
+      "claim": "Mrs. Lexington stated she went to bed at half-past ten and could hear nothing from her room at the other end of the house.",
+      "evidence_type": "testimony",
+      "status": "unverified",
+      "source_speaker": "Mrs. Lexington",
+      "source_excerpt": "She had gone to bed at half-past ten. Her room was at the other end of the house, and she could hear nothing of what had passed.",
+      "is_grounded": true,
+      "entity_ids": [
+        "ENT_006"
+      ],
+      "entity_names": [
+        "Mrs. Lexington"
+      ],
+      "supports": [],
+      "contradicts": []
+    },
+    {
+      "evidence_id": "EV_058",
+      "document_id": "DOC_010",
+      "claim": "Mr. McFarlane left his hat and to the best of her belief his stick in the hall.",
+      "evidence_type": "testimony",
+      "status": "unverified",
+      "source_speaker": "Mrs. Lexington",
+      "source_excerpt": "Mr. McFarlane had left his hat, and to the best of her belief his stick, in the hall.",
+      "is_grounded": true,
+      "entity_ids": [
+        "ENT_003",
+        "ENT_006"
+      ],
+      "entity_names": [
+        "John Hector McFarlane",
+        "Mrs. Lexington"
+      ],
+      "supports": [],
+      "contradicts": []
+    },
+    {
+      "evidence_id": "EV_059",
+      "document_id": "DOC_010",
+      "claim": "Mrs. Lexington was awakened by the alarm of fire.",
+      "evidence_type": "testimony",
+      "status": "unverified",
+      "source_speaker": "Mrs. Lexington",
+      "source_excerpt": "She had been awakened by the alarm of fire.",
+      "is_grounded": true,
+      "entity_ids": [
+        "ENT_006"
+      ],
+      "entity_names": [
+        "Mrs. Lexington"
+      ],
+      "supports": [],
+      "contradicts": []
+    },
+    {
+      "evidence_id": "EV_060",
+      "document_id": "DOC_010",
+      "claim": "Buttons belonged to the clothes Mr. Oldacre wore the previous night.",
+      "evidence_type": "testimony",
+      "status": "unverified",
+      "source_speaker": "Mrs. Lexington",
+      "source_excerpt": "She had seen the buttons, and was sure that they belonged to the clothes which he had worn last night.",
+      "is_grounded": true,
+      "entity_ids": [
+        "ENT_004",
+        "ENT_006"
+      ],
+      "entity_names": [
+        "Jonas Oldacre",
+        "Mrs. Lexington"
+      ],
+      "supports": [],
+      "contradicts": []
+    },
+    {
+      "evidence_id": "EV_061",
+      "document_id": "DOC_010",
+      "claim": "Wood-pile was very dry and burned like tinder, with nothing seen but flames and smelled burned flesh by the time she reached the spot.",
+      "evidence_type": "testimony",
+      "status": "unverified",
+      "source_speaker": "Mrs. Lexington",
+      "source_excerpt": "The wood-pile was very dry, for it had not rained for a month. It burned like tinder, and by the time she reached the spot, nothing could be seen but flames. She and all the firemen smelled the burned flesh from inside it.",
+      "is_grounded": true,
+      "entity_ids": [
+        "ENT_006"
+      ],
+      "entity_names": [
+        "Mrs. Lexington"
+      ],
+      "supports": [],
+      "contradicts": []
+    },
+    {
+      "evidence_id": "EV_062",
+      "document_id": "DOC_010",
+      "claim": "Housekeeper knows something and has a sort of sulky defiance in her eyes indicating guilty knowledge.",
+      "evidence_type": "testimony",
+      "status": "unverified",
+      "source_speaker": "Sherlock Holmes",
+      "source_excerpt": "There is something that has not come out, and that housekeeper knows it. There was a sort of sulky defiance in her eyes, which only goes with guilty knowledge.",
+      "is_grounded": true,
+      "entity_ids": [
+        "ENT_006"
+      ],
+      "entity_names": [
+        "Mrs. Lexington"
+      ],
+      "supports": [],
+      "contradicts": []
+    },
+    {
+      "evidence_id": "EV_063",
+      "document_id": "DOC_011",
+      "claim": "The bank-book showed large checks made out during the last year to Mr. Cornelius.",
+      "evidence_type": "documentary",
+      "status": "verified",
+      "source_speaker": null,
+      "source_excerpt": "On looking over the bank-book I found that the low state of the balance was principally due to large checks which have been made out during the last year to Mr. Cornelius.",
+      "is_grounded": true,
+      "entity_ids": [
+        "ENT_005"
+      ],
+      "entity_names": [
+        "Mr. Cornelius"
+      ],
+      "supports": [
+        "Oldacre financial scheme"
+      ],
+      "contradicts": []
+    },
+    {
+      "evidence_id": "EV_064",
+      "document_id": "DOC_011",
+      "claim": "No scrip was found to correspond with the large payments made to Mr. Cornelius.",
+      "evidence_type": "documentary",
+      "status": "verified",
+      "source_speaker": null,
+      "source_excerpt": "Cornelius might be a broker, but we have found no scrip to correspond with these large payments.",
+      "is_grounded": true,
+      "entity_ids": [
+        "ENT_005"
+      ],
+      "entity_names": [
+        "Mr. Cornelius"
+      ],
+      "supports": [],
+      "contradicts": []
+    },
+    {
+      "evidence_id": "EV_065",
+      "document_id": "DOC_011",
+      "claim": "Lestrade sent a telegram claiming that important fresh evidence had come to hand and that McFarlane's guilt was definitely established.",
+      "evidence_type": "documentary",
+      "status": "unverified",
+      "source_speaker": "Lestrade",
+      "source_excerpt": "Important fresh evidence to hand. McFarlane’s guilt definitely established. Advise you to abandon case.",
+      "is_grounded": true,
+      "entity_ids": [
+        "ENT_002",
+        "ENT_003"
+      ],
+      "entity_names": [
+        "Lestrade",
+        "John McFarlane"
+      ],
+      "supports": [
+        "case against McFarlane"
+      ],
+      "contradicts": []
+    },
+    {
+      "evidence_id": "EV_066",
+      "document_id": "DOC_011",
+      "claim": "Lestrade stated at Deep Dene House that McFarlane's guilt is proved for once and for all.",
+      "evidence_type": "testimony",
+      "status": "unverified",
+      "source_speaker": "Lestrade",
+      "source_excerpt": "Step this way, if you please, gentlemen, and I think I can convince you once for all that it was John McFarlane who did this crime.",
+      "is_grounded": true,
+      "entity_ids": [
+        "ENT_002",
+        "ENT_003",
+        "ENT_019"
+      ],
+      "entity_names": [
+        "Lestrade",
+        "John McFarlane",
+        "Deep Dene House"
+      ],
+      "supports": [
+        "case against McFarlane"
+      ],
+      "contradicts": []
+    },
+    {
+      "evidence_id": "EV_067",
+      "document_id": "DOC_012",
+      "claim": "A blood stain and a thumb print were found on the whitewashed wall in the hall.",
+      "evidence_type": "physical",
+      "status": "verified",
+      "source_speaker": null,
+      "source_excerpt": "With dramatic suddenness he struck a match, and by its light exposed a stain of blood upon the whitewashed wall. As he held the match nearer, I saw that it was more than a stain. It was the well-marked print of a thumb.",
+      "is_grounded": true,
+      "entity_ids": [],
+      "entity_names": [],
+      "supports": [
+        "case against McFarlane"
+      ],
+      "contradicts": []
+    },
+    {
+      "evidence_id": "EV_068",
+      "document_id": "DOC_012",
+      "claim": "The blood-stain thumb print matches the wax impression of McFarlane's right thumb.",
+      "evidence_type": "physical",
+      "status": "verified",
+      "source_speaker": null,
+      "source_excerpt": "As he held the waxen print close to the blood-stain, it did not take a magnifying glass to see that the two were undoubtedly from the same thumb.",
+      "is_grounded": true,
+      "entity_ids": [
+        "ENT_003"
+      ],
+      "entity_names": [
+        "McFarlane"
+      ],
+      "supports": [
+        "case against McFarlane"
+      ],
+      "contradicts": []
+    },
+    {
+      "evidence_id": "EV_069",
+      "document_id": "DOC_012",
+      "claim": "Mrs. Lexington drew the night constable's attention to the thumb-mark.",
+      "evidence_type": "testimony",
+      "status": "unverified",
+      "source_speaker": "Lestrade",
+      "source_excerpt": "It was the housekeeper, Mrs. Lexington, who drew the night constable’s attention to it.",
+      "is_grounded": true,
+      "entity_ids": [
+        "ENT_006",
+        "ENT_009"
+      ],
+      "entity_names": [
+        "Mrs. Lexington",
+        "night constable"
+      ],
+      "supports": [],
+      "contradicts": []
+    },
+    {
+      "evidence_id": "EV_070",
+      "document_id": "DOC_012",
+      "claim": "The night constable remained on guard in the bedroom where the crime was committed.",
+      "evidence_type": "testimony",
+      "status": "unverified",
+      "source_speaker": "Lestrade",
+      "source_excerpt": "He remained on guard in the bedroom where the crime was committed, so as to see that nothing was touched.",
+      "is_grounded": true,
+      "entity_ids": [
+        "ENT_009"
+      ],
+      "entity_names": [
+        "night constable"
+      ],
+      "supports": [],
+      "contradicts": []
+    },
+    {
+      "evidence_id": "EV_071",
+      "document_id": "DOC_013",
+      "claim": "Holmes observed that a certain mark was not present in the hall during his examination the previous day.",
+      "evidence_type": "observation",
+      "status": "unverified",
+      "source_speaker": "Holmes",
+      "source_excerpt": "that mark was not there when I examined the hall yesterday.",
+      "is_grounded": true,
+      "entity_ids": [
+        "ENT_013"
+      ],
+      "entity_names": [
+        "Holmes"
+      ],
+      "supports": [],
+      "contradicts": []
+    },
+    {
+      "evidence_id": "EV_072",
+      "document_id": "DOC_013",
+      "claim": "Holmes stated that there is an important witness whom Lestrade has not seen.",
+      "evidence_type": "testimony",
+      "status": "unverified",
+      "source_speaker": "Holmes",
+      "source_excerpt": "there is an important witness whom you have not seen.",
+      "is_grounded": true,
+      "entity_ids": [
+        "ENT_013",
+        "ENT_002"
+      ],
+      "entity_names": [
+        "Holmes",
+        "Lestrade"
+      ],
+      "supports": [],
+      "contradicts": []
+    },
+    {
+      "evidence_id": "EV_073",
+      "document_id": "DOC_013",
+      "claim": "Lestrade was writing a report of the case.",
+      "evidence_type": "observation",
+      "status": "verified",
+      "source_speaker": null,
+      "source_excerpt": "The Scotland Yard inspector was still writing in the parlour when Holmes interrupted him.",
+      "is_grounded": true,
+      "entity_ids": [
+        "ENT_002",
+        "ENT_013"
+      ],
+      "entity_names": [
+        "Lestrade",
+        "Holmes"
+      ],
+      "supports": [],
+      "contradicts": []
+    },
+    {
+      "evidence_id": "EV_074",
+      "document_id": "DOC_014",
+      "claim": "Following shouts of 'Fire!', Jonas Oldacre darted out of a concealed door opening from what appeared to be a solid wall.",
+      "evidence_type": "observation",
+      "status": "verified",
+      "source_speaker": null,
+      "source_excerpt": "A door suddenly flew open out of what appeared to be solid wall at the end of the corridor, and a little, wizened man darted out of it, like a rabbit out of its burrow.",
+      "is_grounded": true,
+      "entity_ids": [
+        "ENT_004"
+      ],
+      "entity_names": [
+        "Jonas Oldacre"
+      ],
+      "supports": [],
+      "contradicts": []
+    },
+    {
+      "evidence_id": "EV_075",
+      "document_id": "DOC_014",
+      "claim": "Jonas Oldacre claimed his actions were only a practical joke.",
+      "evidence_type": "testimony",
+      "status": "unverified",
+      "source_speaker": "Jonas Oldacre",
+      "source_excerpt": "‘I am sure, sir, it was only my practical joke.’",
+      "is_grounded": true,
+      "entity_ids": [
+        "ENT_004"
+      ],
+      "entity_names": [
+        "Jonas Oldacre"
+      ],
+      "supports": [],
+      "contradicts": []
+    },
+    {
+      "evidence_id": "EV_076",
+      "document_id": "DOC_015",
+      "claim": "A lath-and-plaster partition with a concealed door, lit by slits under the eaves, contained furniture, food, water, books, and papers.",
+      "evidence_type": "physical",
+      "status": "verified",
+      "source_speaker": null,
+      "source_excerpt": "A lath-and-plaster partition had been run across the passage six feet from the end, with a door cunningly concealed in it. It was lit within by slits under the eaves. A few articles of furniture and a supply of food and water were within, together with a number of books and papers.",
+      "is_grounded": true,
+      "entity_ids": [],
+      "entity_names": [],
+      "supports": [],
+      "contradicts": []
+    },
+    {
+      "evidence_id": "EV_077",
+      "document_id": "DOC_015",
+      "claim": "Holmes deduced the hiding place by pacing one corridor and finding it six feet shorter than the corresponding one below.",
+      "evidence_type": "observation",
+      "status": "unverified",
+      "source_speaker": "Sherlock Holmes",
+      "source_excerpt": "When I paced one corridor and found it six feet shorter than the corresponding one below, it was pretty clear where he was.",
+      "is_grounded": true,
+      "entity_ids": [],
+      "entity_names": [],
+      "supports": [],
+      "contradicts": []
+    },
+    {
+      "evidence_id": "EV_078",
+      "document_id": "DOC_015",
+      "claim": "Holmes observed that the thumb-mark on the hall wall was not there the day before during his examination of the hall.",
+      "evidence_type": "observation",
+      "status": "unverified",
+      "source_speaker": "Sherlock Holmes",
+      "source_excerpt": "I knew it had not been there the day before. I pay a good deal of attention to matters of detail, as you may have observed, and I had examined the hall, and was sure that the wall was clear.",
+      "is_grounded": true,
+      "entity_ids": [],
+      "entity_names": [],
+      "supports": [],
+      "contradicts": []
+    },
+    {
+      "evidence_id": "EV_079",
+      "document_id": "DOC_015",
+      "claim": "Holmes wagers that a seal with the thumb-mark upon it will be found among the documents Oldacre took into his retreat.",
+      "evidence_type": "testimony",
+      "status": "unverified",
+      "source_speaker": "Sherlock Holmes",
+      "source_excerpt": "If you examine among those documents which he took with him into his retreat, I will lay you a wager that you find the seal with the thumb-mark upon it.",
+      "is_grounded": true,
+      "entity_ids": [],
+      "entity_names": [],
+      "supports": [],
+      "contradicts": []
+    },
+    {
+      "evidence_id": "EV_080",
+      "document_id": "DOC_016",
+      "claim": "Oldacre was once refused by McFarlane's mother.",
+      "evidence_type": "motive",
+      "status": "unverified",
+      "source_speaker": "Holmes",
+      "source_excerpt": "You know that he was once refused by McFarlane’s mother?",
+      "is_grounded": true,
+      "entity_ids": [
+        "ENT_004",
+        "ENT_007"
+      ],
+      "entity_names": [
+        "Oldacre",
+        "McFarlane's mother"
+      ],
+      "supports": [
+        "Oldacre financial scheme",
+        "case against Oldacre"
+      ],
+      "contradicts": []
+    },
+    {
+      "evidence_id": "EV_081",
+      "document_id": "DOC_016",
+      "claim": "Oldacre engaged in secret speculation and experienced financial troubles.",
+      "evidence_type": "motive",
+      "status": "unverified",
+      "source_speaker": "Holmes",
+      "source_excerpt": "During the last year or two, things have gone against him—secret speculation, I think—and he finds himself in a bad way.",
+      "is_grounded": true,
+      "entity_ids": [
+        "ENT_004"
+      ],
+      "entity_names": [
+        "Oldacre"
+      ],
+      "supports": [
+        "Oldacre financial scheme"
+      ],
+      "contradicts": []
+    },
+    {
+      "evidence_id": "EV_082",
+      "document_id": "DOC_016",
+      "claim": "Oldacre intended to swindle creditors by paying large checks to Mr. Cornelius and planned to change his name, draw the money, and vanish.",
+      "evidence_type": "motive",
+      "status": "unverified",
+      "source_speaker": "Holmes",
+      "source_excerpt": "He determines to swindle his creditors, and for this purpose he pays large checks to a certain Mr. Cornelius, who is, I imagine, himself under another name.",
+      "is_grounded": true,
+      "entity_ids": [
+        "ENT_004",
+        "ENT_005"
+      ],
+      "entity_names": [
+        "Oldacre",
+        "Mr. Cornelius"
+      ],
+      "supports": [
+        "Oldacre financial scheme"
+      ],
+      "contradicts": []
+    },
+    {
+      "evidence_id": "EV_083",
+      "document_id": "DOC_016",
+      "claim": "Oldacre plotted revenge by staging his disappearance to frame McFarlane for murder.",
+      "evidence_type": "testimony",
+      "status": "unverified",
+      "source_speaker": "Holmes",
+      "source_excerpt": "It would strike him that in disappearing he might throw all pursuit off his track, and at the same time have an ample and crushing revenge upon his old sweetheart, if he could give the impression that he had been murdered by her only child.",
+      "is_grounded": true,
+      "entity_ids": [
+        "ENT_004",
+        "ENT_003"
+      ],
+      "entity_names": [
+        "Oldacre",
+        "McFarlane"
+      ],
+      "supports": [
+        "Oldacre innocence claim",
+        "case against McFarlane"
+      ],
+      "contradicts": [
+        "Oldacre innocence claim"
+      ]
+    },
+    {
+      "evidence_id": "EV_084",
+      "document_id": "DOC_016",
+      "claim": "Holmes states or theorizes that oldacre fabricated a will, arranged a secret visit, retained the stick, blood, animal remains, and buttons in the wood-pile as part of his plot.",
+      "evidence_type": "testimony",
+      "status": "unverified",
+      "source_speaker": "Holmes",
+      "source_excerpt": "The idea of the will, which would give an obvious motive for the crime, the secret visit unknown to his own parents, the retention of the stick, the blood, and the animal remains and buttons in the wood-pile, all were admirable.",
+      "is_grounded": true,
+      "entity_ids": [
+        "ENT_004"
+      ],
+      "entity_names": [
+        "Oldacre"
+      ],
+      "supports": [
+        "Oldacre innocence claim"
+      ],
+      "contradicts": [
+        "Oldacre innocence claim"
+      ]
+    },
+    {
+      "evidence_id": "EV_085",
+      "document_id": "DOC_016",
+      "claim": "Oldacre stated that his disappearance was merely a practical joke and that he simply concealed himself to see the effect.",
+      "evidence_type": "testimony",
+      "status": "unverified",
+      "source_speaker": "Oldacre",
+      "source_excerpt": "“It was a joke, my good sir—a practical joke, nothing more,” he whined incessantly. “I assure you, sir, that I simply concealed myself in order to see the effect of my disappearance, and I am sure that you would not be so unjust as to imagine that I would have allowed any harm to befall poor young Mr. McFarlane.”",
+      "is_grounded": true,
+      "entity_ids": [
+        "ENT_004",
+        "ENT_003"
+      ],
+      "entity_names": [
+        "Oldacre",
+        "McFarlane"
+      ],
+      "supports": [
+        "Oldacre innocence claim"
+      ],
+      "contradicts": []
+    },
+    {
+      "evidence_id": "EV_086",
+      "document_id": "DOC_016",
+      "claim": "Lestrade informed Oldacre he would be charged with conspiracy if not attempted murder.",
+      "evidence_type": "testimony",
+      "status": "unverified",
+      "source_speaker": "Lestrade",
+      "source_excerpt": "“That’s for a jury to decide,” said Lestrade. “Anyhow, we shall have you on a charge of conspiracy, if not for attempted murder.”",
+      "is_grounded": true,
+      "entity_ids": [
+        "ENT_002",
+        "ENT_004"
+      ],
+      "entity_names": [
+        "Lestrade",
+        "Oldacre"
+      ],
+      "supports": [],
+      "contradicts": []
+    },
+    {
+      "evidence_id": "EV_087",
+      "document_id": "DOC_016",
+      "claim": "Oldacre put old trousers, and possibly rabbits or a dead dog, into the wood-pile.",
+      "evidence_type": "observation",
+      "status": "unverified",
+      "source_speaker": "Holmes",
+      "source_excerpt": "By the way, what was it you put into the wood-pile besides your old trousers? A dead dog, or rabbits, or what?",
+      "is_grounded": true,
+      "entity_ids": [
+        "ENT_004"
+      ],
+      "entity_names": [
+        "Oldacre"
+      ],
+      "supports": [],
+      "contradicts": []
+    }
+  ],
+  "relationships": [
+    {
+      "relationship_id": "REL_001",
+      "source_id": "ENT_014",
+      "source_name": "Verner",
+      "target_id": "ENT_013",
+      "target_name": "Sherlock Holmes",
+      "relation": "distant_relation_of",
+      "status": "verified",
+      "source_speaker": null,
+      "source_excerpt": "I found that Verner was a distant relation of Holmes, and that it was my friend who had really found the money.",
+      "is_grounded": true,
+      "document_id": "DOC_001"
+    },
+    {
+      "relationship_id": "REL_002",
+      "source_id": "ENT_003",
+      "source_name": "John Hector McFarlane",
+      "target_id": "ENT_004",
+      "target_name": "Jonas Oldacre",
+      "relation": "accused_of_murdering",
+      "status": "unverified",
+      "source_speaker": "John Hector McFarlane",
+      "source_excerpt": "Upon the charge of murdering Mr. Jonas Oldacre, of Lower Norwood.",
+      "is_grounded": true,
+      "document_id": "DOC_002"
+    },
+    {
+      "relationship_id": "REL_003",
+      "source_id": "ENT_003",
+      "source_name": "John Hector McFarlane",
+      "target_id": "ENT_026",
+      "target_name": "Graham and McFarlane",
+      "relation": "junior_partner_of",
+      "status": "verified",
+      "source_speaker": null,
+      "source_excerpt": "John Hector McFarlane, junior partner of Graham and McFarlane, of 426, Gresham Buildings, E.C.",
+      "is_grounded": true,
+      "document_id": "DOC_003"
+    },
+    {
+      "relationship_id": "REL_004",
+      "source_id": "ENT_004",
+      "source_name": "Jonas Oldacre",
+      "target_id": "ENT_019",
+      "target_name": "Deep Dene House",
+      "relation": "resident_of",
+      "status": "verified",
+      "source_speaker": null,
+      "source_excerpt": "Mr. Jonas Oldacre is a well-known resident of that suburb, where he has carried on his business as a builder for many years. Mr. Oldacre is a bachelor, fifty-two years of age, and lives in Deep Dene House",
+      "is_grounded": true,
+      "document_id": "DOC_003"
+    },
+    {
+      "relationship_id": "REL_005",
+      "source_id": "ENT_003",
+      "source_name": "John Hector McFarlane",
+      "target_id": "ENT_025",
+      "target_name": "Torrington Lodge",
+      "relation": "resides_at",
+      "status": "unverified",
+      "source_speaker": "John Hector McFarlane",
+      "source_excerpt": "I live at Torrington Lodge, Blackheath, with my parents, Mr. Holmes",
+      "is_grounded": true,
+      "document_id": "DOC_004"
+    },
+    {
+      "relationship_id": "REL_006",
+      "source_id": "ENT_003",
+      "source_name": "John Hector McFarlane",
+      "target_id": "ENT_004",
+      "target_name": "Jonas Oldacre",
+      "relation": "conducted_business_with",
+      "status": "unverified",
+      "source_speaker": "John Hector McFarlane",
+      "source_excerpt": "last night, having to do business very late with Mr. Jonas Oldacre, I stayed at an hotel in Norwood",
+      "is_grounded": true,
+      "document_id": "DOC_004"
+    },
+    {
+      "relationship_id": "REL_007",
+      "source_id": "ENT_002",
+      "source_name": "Lestrade",
+      "target_id": "ENT_003",
+      "target_name": "John Hector McFarlane",
+      "relation": "arrested",
+      "status": "verified",
+      "source_speaker": null,
+      "source_excerpt": "“Mr. John Hector McFarlane?” said Lestrade. Our unfortunate client rose with a ghastly face. “I arrest you for the wilful murder of Mr. Jonas Oldacre, of Lower Norwood.”",
+      "is_grounded": true,
+      "document_id": "DOC_004"
+    },
+    {
+      "relationship_id": "REL_008",
+      "source_id": "ENT_004",
+      "source_name": "Jonas Oldacre",
+      "target_id": "ENT_003",
+      "target_name": "McFarlane",
+      "relation": "client_of",
+      "status": "unverified",
+      "source_speaker": "McFarlane",
+      "source_excerpt": "‘Here is my will,’ said he. ‘I want you, Mr. McFarlane, to cast it into proper legal shape.'",
+      "is_grounded": true,
+      "document_id": "DOC_005"
+    },
+    {
+      "relationship_id": "REL_009",
+      "source_id": "ENT_003",
+      "source_name": "McFarlane",
+      "target_id": "ENT_024",
+      "target_name": "Norwood",
+      "relation": "visited",
+      "status": "unverified",
+      "source_speaker": "McFarlane",
+      "source_excerpt": "he begged me to come out to his house at Norwood that night, bringing the will with me, and to arrange matters.",
+      "is_grounded": true,
+      "document_id": "DOC_005"
+    },
+    {
+      "relationship_id": "REL_010",
+      "source_id": "ENT_003",
+      "source_name": "McFarlane",
+      "target_id": "ENT_016",
+      "target_name": "Anerley Arms",
+      "relation": "lodged_at",
+      "status": "unverified",
+      "source_speaker": "McFarlane",
+      "source_excerpt": "It was so late that I could not get back to Blackheath, so I spent the night at the Anerley Arms",
+      "is_grounded": true,
+      "document_id": "DOC_005"
+    },
+    {
+      "relationship_id": "REL_011",
+      "source_id": "ENT_003",
+      "source_name": "John Hector McFarlane",
+      "target_id": "ENT_016",
+      "target_name": "Anerley Arms",
+      "relation": "spent_night_at",
+      "status": "unverified",
+      "source_speaker": "John Hector McFarlane",
+      "source_excerpt": "It was so late that I could not get back to Blackheath, so I spent the night at the Anerley Arms",
+      "is_grounded": true,
+      "document_id": "DOC_006"
+    },
+    {
+      "relationship_id": "REL_012",
+      "source_id": "ENT_004",
+      "source_name": "Jonas Oldacre",
+      "target_id": "ENT_003",
+      "target_name": "John Hector McFarlane",
+      "relation": "drew_up_will_during_journey",
+      "status": "unverified",
+      "source_speaker": "Sherlock Holmes",
+      "source_excerpt": "it corroborates the young man’s story to the extent that the will was drawn up by Jonas Oldacre in his journey yesterday.",
+      "is_grounded": true,
+      "document_id": "DOC_006"
+    },
+    {
+      "relationship_id": "REL_013",
+      "source_id": "ENT_003",
+      "source_name": "McFarlane",
+      "target_id": "ENT_004",
+      "target_name": "Oldacre",
+      "relation": "inherits_from",
+      "status": "unverified",
+      "source_speaker": "Lestrade",
+      "source_excerpt": "Here is a young man who learns suddenly that, if a certain older man dies, he will succeed to a fortune.",
+      "is_grounded": true,
+      "document_id": "DOC_007"
+    },
+    {
+      "relationship_id": "REL_014",
+      "source_id": "ENT_003",
+      "source_name": "McFarlane",
+      "target_id": "ENT_004",
+      "target_name": "Oldacre",
+      "relation": "heir_at_law_of",
+      "status": "unverified",
+      "source_speaker": "Lestrade",
+      "source_excerpt": "the prisoner is the one man in the world who had no reason for removing them, since he was heir-at-law",
+      "is_grounded": true,
+      "document_id": "DOC_007"
+    },
+    {
+      "relationship_id": "REL_015",
+      "source_id": "ENT_011",
+      "source_name": "Oldacre's mother",
+      "target_id": "ENT_004",
+      "target_name": "Oldacre",
+      "relation": "mother_of",
+      "status": "unverified",
+      "source_speaker": "Watson",
+      "source_excerpt": "The mother was at home—a little, fluffy, blue-eyed person, in a tremor of fear and indignation. Of course, she would not admit even the possibility of his guilt. But she would not express either surprise or regret over the fate of Oldacre.",
+      "is_grounded": true,
+      "document_id": "DOC_008"
+    },
+    {
+      "relationship_id": "REL_016",
+      "source_id": "ENT_007",
+      "source_name": "Mrs. McFarlane",
+      "target_id": "ENT_004",
+      "target_name": "Jonas Oldacre",
+      "relation": "former_fiancée",
+      "status": "unverified",
+      "source_speaker": "Mrs. McFarlane",
+      "source_excerpt": "I was engaged to him, Mr. Holmes, when I heard a shocking story of how he had turned a cat loose in an aviary, and I was so horrified at his brutal cruelty that I would have nothing more to do with him.",
+      "is_grounded": true,
+      "document_id": "DOC_009"
+    },
+    {
+      "relationship_id": "REL_017",
+      "source_id": "ENT_004",
+      "source_name": "Jonas Oldacre",
+      "target_id": "ENT_007",
+      "target_name": "Mrs. McFarlane",
+      "relation": "former_suitor",
+      "status": "unverified",
+      "source_speaker": "I",
+      "source_excerpt": "Yes, I knew him well, in fact, he was an old suitor of mine.",
+      "is_grounded": true,
+      "document_id": "DOC_009"
+    },
+    {
+      "relationship_id": "REL_018",
+      "source_id": "ENT_006",
+      "source_name": "Mrs. Lexington",
+      "target_id": "ENT_003",
+      "target_name": "John Hector McFarlane",
+      "relation": "let_in",
+      "status": "unverified",
+      "source_speaker": "Mrs. Lexington",
+      "source_excerpt": "Yes, she had let Mr. McFarlane in at half-past nine.",
+      "is_grounded": true,
+      "document_id": "DOC_010"
+    },
+    {
+      "relationship_id": "REL_019",
+      "source_id": "ENT_006",
+      "source_name": "Mrs. Lexington",
+      "target_id": "ENT_004",
+      "target_name": "Jonas Oldacre",
+      "relation": "employee_of",
+      "status": "unverified",
+      "source_speaker": "Mrs. Lexington",
+      "source_excerpt": "Her poor, dear master had certainly been murdered.",
+      "is_grounded": true,
+      "document_id": "DOC_010"
+    },
+    {
+      "relationship_id": "REL_020",
+      "source_id": "ENT_002",
+      "source_name": "Lestrade",
+      "target_id": "ENT_003",
+      "target_name": "John McFarlane",
+      "relation": "accused_of_crime",
+      "status": "unverified",
+      "source_speaker": "Lestrade",
+      "source_excerpt": "Important fresh evidence to hand. McFarlane’s guilt definitely established. Advise you to abandon case.",
+      "is_grounded": true,
+      "document_id": "DOC_011"
+    },
+    {
+      "relationship_id": "REL_021",
+      "source_id": "ENT_006",
+      "source_name": "Mrs. Lexington",
+      "target_id": "ENT_009",
+      "target_name": "night constable",
+      "relation": "drew_attention_to_thumb_mark_for",
+      "status": "unverified",
+      "source_speaker": "Lestrade",
+      "source_excerpt": "It was the housekeeper, Mrs. Lexington, who drew the night constable’s attention to it.",
+      "is_grounded": true,
+      "document_id": "DOC_012"
+    },
+    {
+      "relationship_id": "REL_022",
+      "source_id": "ENT_004",
+      "source_name": "Jonas Oldacre",
+      "target_id": "ENT_013",
+      "target_name": "Sherlock Holmes",
+      "relation": "discovered_by",
+      "status": "verified",
+      "source_speaker": null,
+      "source_excerpt": "Lestrade, allow me to present you with your principal missing witness, Mr. Jonas Oldacre.",
+      "is_grounded": true,
+      "document_id": "DOC_014"
+    },
+    {
+      "relationship_id": "REL_023",
+      "source_id": "ENT_013",
+      "source_name": "Sherlock Holmes",
+      "target_id": "ENT_015",
+      "target_name": "Watson",
+      "relation": "has_historian",
+      "status": "unverified",
+      "source_speaker": "Sherlock Holmes",
+      "source_excerpt": "my zealous historian to lay out his foolscap once more—eh, Watson?",
+      "is_grounded": true,
+      "document_id": "DOC_015"
+    },
+    {
+      "relationship_id": "REL_024",
+      "source_id": "ENT_004",
+      "source_name": "Jonas Oldacre",
+      "target_id": "ENT_003",
+      "target_name": "McFarlane",
+      "relation": "obtained_thumb_mark_via_seal",
+      "status": "unverified",
+      "source_speaker": "Sherlock Holmes",
+      "source_excerpt": "When those packets were sealed up, Jonas Oldacre got McFarlane to secure one of the seals by putting his thumb upon the soft wax.",
+      "is_grounded": true,
+      "document_id": "DOC_015"
+    },
+    {
+      "relationship_id": "REL_025",
+      "source_id": "ENT_004",
+      "source_name": "Oldacre",
+      "target_id": "ENT_007",
+      "target_name": "McFarlane's mother",
+      "relation": "once_refused_by",
+      "status": "unverified",
+      "source_speaker": "Holmes",
+      "source_excerpt": "You know that he was once refused by McFarlane’s mother?",
+      "is_grounded": true,
+      "document_id": "DOC_016"
+    },
+    {
+      "relationship_id": "REL_026",
+      "source_id": "ENT_004",
+      "source_name": "Oldacre",
+      "target_id": "ENT_005",
+      "target_name": "Mr. Cornelius",
+      "relation": "alias_of",
+      "status": "unverified",
+      "source_speaker": "Holmes",
+      "source_excerpt": "He determines to swindle his creditors, and for this purpose he pays large checks to a certain Mr. Cornelius, who is, I imagine, himself under another name.",
+      "is_grounded": true,
+      "document_id": "DOC_016"
+    }
+  ]
+}

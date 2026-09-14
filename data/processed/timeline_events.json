@@ -1,0 +1,319 @@
+{
+  "case_id": "norwood_builder",
+  "timeline_type": "investigation_timeline",
+  "events": [
+    {
+      "event_id": "EVENT_001",
+      "title": "McFarlane's Arrival at Baker Street",
+      "description": "John Hector McFarlane arrives at Baker Street in a frantic state, expressing fears of being arrested for the murder of Jonas Oldacre.",
+      "investigation_order": 1,
+      "time_label": null,
+      "status": "verified",
+      "source_mode": "observed",
+      "core_evidence_ids": [
+        "EV_001",
+        "EV_002",
+        "EV_003"
+      ],
+      "context_evidence_ids": [
+        "EV_004",
+        "EV_005",
+        "EV_006"
+      ],
+      "participant_entity_ids": [
+        "ENT_003",
+        "ENT_013",
+        "ENT_017"
+      ],
+      "location_entity_ids": [
+        "ENT_017"
+      ],
+      "document_ids": [
+        "DOC_001",
+        "DOC_002"
+      ]
+    },
+    {
+      "event_id": "EVENT_002",
+      "title": "Discovery of the Norwood Fire and Crime Scene",
+      "description": "A fire consumes a timber-yard stack at Deep Dene House while Jonas Oldacre is missing, and police discover signs of a struggle, blood traces, and a blood-stained walking-stick belonging to McFarlane.",
+      "investigation_order": 2,
+      "time_label": "night of the incident",
+      "status": "unverified",
+      "source_mode": "mixed",
+      "core_evidence_ids": [
+        "EV_007",
+        "EV_008",
+        "EV_009",
+        "EV_010"
+      ],
+      "context_evidence_ids": [
+        "EV_011",
+        "EV_013",
+        "EV_014"
+      ],
+      "participant_entity_ids": [
+        "ENT_003",
+        "ENT_004"
+      ],
+      "location_entity_ids": [
+        "ENT_019",
+        "ENT_024"
+      ],
+      "document_ids": [
+        "DOC_003"
+      ]
+    },
+    {
+      "event_id": "EVENT_003",
+      "title": "Arrest of John Hector McFarlane",
+      "description": "Inspector Lestrade arrives and formally arrests John Hector McFarlane for the wilful murder of Jonas Oldacre.",
+      "investigation_order": 3,
+      "time_label": null,
+      "status": "verified",
+      "source_mode": "observed",
+      "core_evidence_ids": [
+        "EV_019"
+      ],
+      "context_evidence_ids": [
+        "EV_015",
+        "EV_016",
+        "EV_017",
+        "EV_018",
+        "EV_020"
+      ],
+      "participant_entity_ids": [
+        "ENT_002",
+        "ENT_003",
+        "ENT_004"
+      ],
+      "location_entity_ids": [
+        "ENT_024",
+        "ENT_025"
+      ],
+      "document_ids": [
+        "DOC_004"
+      ]
+    },
+    {
+      "event_id": "EVENT_004",
+      "title": "McFarlane's Account of Drafting the Will",
+      "description": "McFarlane recounts how Oldacre visited his office to have a will drafted leaving his property to McFarlane, and invited him to his Norwood house that night.",
+      "investigation_order": 4,
+      "time_label": "previous afternoon",
+      "status": "unverified",
+      "source_mode": "recounted",
+      "core_evidence_ids": [
+        "EV_021",
+        "EV_022",
+        "EV_023",
+        "EV_025",
+        "EV_026"
+      ],
+      "context_evidence_ids": [
+        "EV_024",
+        "EV_027",
+        "EV_028",
+        "EV_029",
+        "EV_030"
+      ],
+      "participant_entity_ids": [
+        "ENT_003",
+        "ENT_004"
+      ],
+      "location_entity_ids": [
+        "ENT_024"
+      ],
+      "document_ids": [
+        "DOC_004",
+        "DOC_005",
+        "DOC_006"
+      ]
+    },
+    {
+      "event_id": "EVENT_005",
+      "title": "Investigation at Blackheath and Interviews",
+      "description": "Holmes visits Blackheath, where Oldacre's mother describes her son as cunning and malignant, while Oldacre's father is away searching for him.",
+      "investigation_order": 5,
+      "time_label": null,
+      "status": "verified",
+      "source_mode": "observed",
+      "core_evidence_ids": [
+        "EV_038",
+        "EV_040",
+        "EV_042",
+        "EV_043"
+      ],
+      "context_evidence_ids": [
+        "EV_039",
+        "EV_041",
+        "EV_044",
+        "EV_045"
+      ],
+      "participant_entity_ids": [
+        "ENT_004",
+        "ENT_010",
+        "ENT_011",
+        "ENT_015"
+      ],
+      "location_entity_ids": [
+        "ENT_018"
+      ],
+      "document_ids": [
+        "DOC_008",
+        "DOC_009"
+      ]
+    },
+    {
+      "event_id": "EVENT_006",
+      "title": "Examination of Oldacre's Bedroom and Housekeeper Statement",
+      "description": "Examination of the bedroom confirms fresh blood-stains, missing safe deeds, and the housekeeper Mrs. Lexington's statements regarding the events of the previous night.",
+      "investigation_order": 6,
+      "time_label": null,
+      "status": "verified",
+      "source_mode": "observed",
+      "core_evidence_ids": [
+        "EV_046",
+        "EV_047",
+        "EV_049",
+        "EV_053",
+        "EV_055",
+        "EV_056",
+        "EV_057",
+        "EV_060",
+        "EV_061"
+      ],
+      "context_evidence_ids": [
+        "EV_050",
+        "EV_051",
+        "EV_052",
+        "EV_054",
+        "EV_058",
+        "EV_059",
+        "EV_062"
+      ],
+      "participant_entity_ids": [
+        "ENT_003",
+        "ENT_004",
+        "ENT_006"
+      ],
+      "location_entity_ids": [
+        "ENT_024"
+      ],
+      "document_ids": [
+        "DOC_009",
+        "DOC_010"
+      ]
+    },
+    {
+      "event_id": "EVENT_007",
+      "title": "Discovery of Bank Checks to Mr. Cornelius",
+      "description": "A review of Oldacre's bank-book reveals large checks made out during the previous year to a Mr. Cornelius with no corresponding scrip found.",
+      "investigation_order": 7,
+      "time_label": null,
+      "status": "verified",
+      "source_mode": "observed",
+      "core_evidence_ids": [
+        "EV_063",
+        "EV_064"
+      ],
+      "context_evidence_ids": [],
+      "participant_entity_ids": [
+        "ENT_005"
+      ],
+      "location_entity_ids": [],
+      "document_ids": [
+        "DOC_011"
+      ]
+    },
+    {
+      "event_id": "EVENT_008",
+      "title": "Discovery of the Hallway Thumb-Print",
+      "description": "A blood-stained thumb print is found on the whitewashed hall wall and matches the wax impression of McFarlane's right thumb.",
+      "investigation_order": 8,
+      "time_label": null,
+      "status": "verified",
+      "source_mode": "observed",
+      "core_evidence_ids": [
+        "EV_067",
+        "EV_068"
+      ],
+      "context_evidence_ids": [
+        "EV_065",
+        "EV_066",
+        "EV_069",
+        "EV_070"
+      ],
+      "participant_entity_ids": [
+        "ENT_002",
+        "ENT_003",
+        "ENT_006",
+        "ENT_009"
+      ],
+      "location_entity_ids": [
+        "ENT_019"
+      ],
+      "document_ids": [
+        "DOC_011",
+        "DOC_012"
+      ]
+    },
+    {
+      "event_id": "EVENT_009",
+      "title": "Holmes Detects Discrepancy in the Hall Mark",
+      "description": "Holmes observes that the thumb-mark on the hall wall was not present during his previous day's examination of the hall.",
+      "investigation_order": 9,
+      "time_label": "the previous day",
+      "status": "unverified",
+      "source_mode": "recounted",
+      "core_evidence_ids": [
+        "EV_071",
+        "EV_078"
+      ],
+      "context_evidence_ids": [
+        "EV_072",
+        "EV_073",
+        "EV_079"
+      ],
+      "participant_entity_ids": [
+        "ENT_002",
+        "ENT_013"
+      ],
+      "location_entity_ids": [],
+      "document_ids": [
+        "DOC_013",
+        "DOC_015"
+      ]
+    },
+    {
+      "event_id": "EVENT_010",
+      "title": "Emergence of Jonas Oldacre from Concealment",
+      "description": "Following shouts of fire, Jonas Oldacre unexpectedly emerges from a concealed secret room, claiming his disappearance was merely a practical joke.",
+      "investigation_order": 10,
+      "time_label": null,
+      "status": "verified",
+      "source_mode": "observed",
+      "core_evidence_ids": [
+        "EV_074",
+        "EV_075",
+        "EV_076",
+        "EV_085"
+      ],
+      "context_evidence_ids": [
+        "EV_077",
+        "EV_086",
+        "EV_087"
+      ],
+      "participant_entity_ids": [
+        "ENT_002",
+        "ENT_004"
+      ],
+      "location_entity_ids": [],
+      "document_ids": [
+        "DOC_014",
+        "DOC_015",
+        "DOC_016"
+      ]
+    }
+  ]
+}

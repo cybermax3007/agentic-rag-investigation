@@ -1,0 +1,36 @@
+{
+  "nodes_total": 152,
+  "edges_total": 470,
+  "node_type_counts": {
+    "document": 16,
+    "entity": 30,
+    "evidence": 87,
+    "hypothesis": 6,
+    "event": 10,
+    "time": 3
+  },
+  "edge_type_counts": {
+    "mentioned_in": 105,
+    "participates_in": 26,
+    "extracted_relationship": 26,
+    "extracted_from": 87,
+    "about_entity": 108,
+    "supports_event": 36,
+    "supports": 22,
+    "context_for_event": 37,
+    "contradicts": 2,
+    "occurs_at_place": 9,
+    "investigation_before": 9,
+    "occurs_at_time": 3
+  },
+  "evidence_status_counts": {
+    "verified": 20,
+    "unverified": 67
+  },
+  "relationship_status_counts": {
+    "verified": 5,
+    "unverified": 21
+  },
+  "isolated_entities": [],
+  "isolated_entity_count": 0
+}

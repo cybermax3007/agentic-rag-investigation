@@ -3,4 +3,10 @@
 __pycache__/
 *.pyc
 .DS_Store
-data/processed/
+
+data/processed/*
+!data/processed/documents.json
+!data/processed/canonical_case.json
+!data/processed/timeline_events.json
+!data/processed/evidence_graph.json
+!data/processed/evidence_graph_audit.json
