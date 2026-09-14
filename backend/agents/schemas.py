@@ -21,6 +21,10 @@ class RetrievedEvidence(BaseModel):
 
 class InvestigatorStep(BaseModel):
     iteration: int
+    phase: Literal[
+        "investigation",
+        "coverage_sweep",
+    ] = "investigation"
     query: str
     theory: str
     sufficient: bool
@@ -43,9 +47,12 @@ class InvestigationResult(BaseModel):
     needs_more_evidence: bool = False
     termination_reason: Literal[
         "sufficient",
+        "sufficient_after_coverage",
         "retry_limit",
         "no_next_query",
     ] = "sufficient"
+    coverage_sweep_used: bool = False
+    coverage_queries: list[str] = Field(default_factory=list)
     trace: list[InvestigatorStep] = Field(default_factory=list)
 
 
@@ -54,6 +61,11 @@ class SufficiencyDecision(BaseModel):
     reason: str
     revised_theory: str
     next_query: str | None = None
+
+
+class CoveragePlan(BaseModel):
+    gap_summary: str
+    queries: list[str] = Field(default_factory=list)
 
 
 class FinalInvestigatorAnswer(BaseModel):

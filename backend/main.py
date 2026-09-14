@@ -12,6 +12,7 @@ from pydantic import BaseModel, Field
 from backend.agents import (
     AgentEvidenceStore,
     FactCheckerAgent,
+    FaithfulnessEvaluator,
     InvestigatorAgent,
 )
 from backend.agents.schemas import InvestigationResult
@@ -243,6 +244,18 @@ def fact_check(
         top_k=request.top_k,
     )
     return result.model_dump()
+
+
+@app.post("/faithfulness")
+def faithfulness(
+    investigation: InvestigationResult,
+) -> dict[str, Any]:
+    evaluator = FaithfulnessEvaluator(
+        evidence_store=get_store()
+    )
+    return evaluator.evaluate(
+        investigation
+    ).model_dump()
 
 
 @app.post("/interrogate")

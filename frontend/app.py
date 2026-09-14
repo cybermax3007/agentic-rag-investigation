@@ -236,8 +236,11 @@ st.markdown(
         font-weight: 600;
     }
 
-    .stButton > button p {
+    .stButton > button p,
+    .stButton > button span,
+    .stButton > button div {
         color: #f8f4ec !important;
+        -webkit-text-fill-color: #f8f4ec !important;
     }
 
     .stButton > button:hover {
@@ -274,6 +277,9 @@ if "investigation" not in st.session_state:
 
 if "fact_check" not in st.session_state:
     st.session_state.fact_check = None
+
+if "faithfulness" not in st.session_state:
+    st.session_state.faithfulness = None
 
 if "verdict_evaluation" not in st.session_state:
     st.session_state.verdict_evaluation = None
@@ -523,7 +529,7 @@ with tabs[0]:
             with st.expander("Source excerpt"):
                 st.write(item["source_excerpt"])
                 st.caption(
-                    f"Hybrid RRF score: {item['score']:.5f}"
+                    f"Retriever: {item['source']} · score: {item['score']:.5f}"
                 )
 
 
@@ -739,6 +745,7 @@ with tabs[3]:
 
         st.session_state.investigation = investigation
         st.session_state.fact_check = None
+        st.session_state.faithfulness = None
 
     investigation = st.session_state.investigation
 
@@ -803,8 +810,13 @@ with tabs[3]:
 
         with st.expander("Investigator execution trace"):
             for step in investigation["trace"]:
+                phase_label = (
+                    "Coverage sweep + verified evidence safety pass"
+                    if step.get("phase") == "coverage_sweep"
+                    else f"Iteration {step['iteration']}"
+                )
                 st.markdown(
-                    f"#### Iteration {step['iteration']}"
+                    f"#### {phase_label}"
                 )
                 st.write(f"**Query:** {step['query']}")
                 st.write(f"**Theory:** {step['theory']}")
@@ -826,23 +838,111 @@ with tabs[3]:
                     + ", ".join(step["evidence_ids"])
                 )
 
-        if st.button(
-            "Run adversarial review",
-            key="run_fact_checker",
-        ):
-            with st.spinner(
-                "Searching independently for counter-evidence..."
+        action_left, action_right = st.columns(2)
+
+        with action_left:
+            if st.button(
+                "Audit answer quality",
+                key="run_faithfulness",
             ):
-                fact_check = api_post(
-                    "/fact-check",
-                    {
-                        "investigation": investigation,
-                        "top_k": 10,
-                    },
-                    timeout=180,
+                with st.spinner(
+                    "Checking citation grounding and evidence coverage..."
+                ):
+                    faithfulness = api_post(
+                        "/faithfulness",
+                        investigation,
+                        timeout=180,
+                    )
+
+                st.session_state.faithfulness = faithfulness
+
+        with action_right:
+            if st.button(
+                "Run adversarial review",
+                key="run_fact_checker",
+            ):
+                with st.spinner(
+                    "Searching independently for counter-evidence..."
+                ):
+                    fact_check = api_post(
+                        "/fact-check",
+                        {
+                            "investigation": investigation,
+                            "top_k": 10,
+                        },
+                        timeout=180,
+                    )
+
+                st.session_state.fact_check = fact_check
+
+    if st.session_state.faithfulness:
+        faithfulness = st.session_state.faithfulness
+
+        st.markdown("---")
+        st.subheader("Answer quality audit")
+        st.caption(
+            "Grounding asks whether the answer is supported by what it cited. "
+            "Coverage separately asks whether decisive evidence was missed."
+        )
+
+        left, middle, right = st.columns([1, 1, 2])
+
+        left.metric(
+            "Citation grounding",
+            f"{faithfulness['support_ratio']:.0%}",
+        )
+
+        coverage_label = faithfulness["coverage_status"].upper()
+        middle.metric(
+            "Coverage",
+            coverage_label,
+        )
+
+        right.write(faithfulness["overall_assessment"])
+        right.caption(faithfulness["coverage_assessment"])
+
+        if faithfulness["critical_omissions"]:
+            st.error(
+                "Critical omitted evidence was found. "
+                "The answer may be grounded but incomplete."
+            )
+
+            for item in faithfulness["critical_omissions"]:
+                st.markdown(
+                    f"""
+                    <div class="evidence-card">
+                        <div class="evidence-meta">
+                            {escape(item["evidence_id"])} ·
+                            {escape(item["document_id"])} ·
+                            {escape(item["status"].upper())}
+                        </div>
+                        <div>{escape(item["claim"])}</div>
+                    </div>
+                    """,
+                    unsafe_allow_html=True,
                 )
 
-            st.session_state.fact_check = fact_check
+        elif faithfulness["coverage_status"] == "warning":
+            st.warning(
+                "The audit found useful omitted evidence, "
+                "but not a validated conclusion-changing omission."
+            )
+        else:
+            st.success(
+                "No critical omission was found in the independent coverage sweep."
+            )
+
+        with st.expander("Sentence-level grounding audit"):
+            for item in faithfulness["assessments"]:
+                status = "SUPPORTED" if item["supported"] else "NOT SUPPORTED"
+                st.markdown(
+                    f"**Sentence {item['sentence_index'] + 1} — {status}**"
+                )
+                st.write(item["reason"])
+                if item["evidence_ids"]:
+                    st.caption(
+                        "Evidence: " + ", ".join(item["evidence_ids"])
+                    )
 
     if st.session_state.fact_check:
         fact_check = st.session_state.fact_check
