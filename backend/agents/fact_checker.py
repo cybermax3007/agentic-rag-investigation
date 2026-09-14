@@ -106,7 +106,7 @@ class FactCheckerAgent:
                 [
                     {
                         "event_id": event.event_id,
-                        "order": event.temporal_order,
+                        "order": event.investigation_order,
                         "time_label": event.time_label,
                         "status": event.status,
                         "title": event.title,
