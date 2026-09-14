@@ -446,12 +446,16 @@ A few things I would improve with more time:
 
 The ML / RAG side is feature-complete for the recruitment task.
 
-Still to do before final submission:
+Completed:
 
 - public deployment
 - technical report
-- demo video
+- retrieval / coverage regression testing
+- Live app
+- Demo video
 
-Live app: _coming soon_
+
+
+Live app: https://agentic-rag-investigation-lrvtys9izujk3m38nytqtu.streamlit.app
 
 Demo video: _coming soon_
