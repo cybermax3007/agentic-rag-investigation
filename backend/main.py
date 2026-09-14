@@ -17,7 +17,8 @@ from backend.agents import (
 )
 from backend.agents.schemas import InvestigationResult
 from backend.graph.evidence_graph import EvidenceGraph
-from backend.models import CaseEvidenceCorpus
+from backend.models import CaseEvidenceCorpus, TimelineCorpus
+from backend.timeline import load_timeline
 
 
 load_dotenv()
@@ -33,6 +34,7 @@ CANONICAL_CASE_PATH = Path("data/processed/canonical_case.json")
 _store: AgentEvidenceStore | None = None
 _graph: EvidenceGraph | None = None
 _case: CaseEvidenceCorpus | None = None
+_timeline: TimelineCorpus | None = None
 
 
 class SearchRequest(BaseModel):
@@ -124,6 +126,13 @@ def get_case() -> CaseEvidenceCorpus:
     return _case
 
 
+def get_timeline() -> TimelineCorpus | None:
+    global _timeline
+    if _timeline is None:
+        _timeline = load_timeline()
+    return _timeline
+
+
 def get_gemini_client() -> tuple[genai.Client, str]:
     api_key = (
         os.getenv("GEMINI_API_KEY")
@@ -174,11 +183,19 @@ def case_summary() -> dict[str, Any]:
         if item["name"] in candidate_names
     ]
 
+    timeline = get_timeline()
+
     return {
         "case_id": case.case_id,
         "entities": len(case.entities),
         "evidence": len(case.evidence),
         "relationships": len(case.relationships),
+        "timeline_events": (
+            len(timeline.events)
+            if timeline is not None
+            else 0
+        ),
+        "timeline_ready": timeline is not None,
         "people": people,
         "candidates": candidates,
     }
@@ -207,6 +224,7 @@ def graph_entity(entity_id: str) -> dict[str, Any]:
             "entity_id": entity_id,
             "evidence": graph.entity_evidence(entity_id),
             "relationships": graph.entity_relationships(entity_id),
+            "timeline": graph.entity_timeline(entity_id),
             "subgraph": graph.subgraph_for_entity(entity_id),
         }
     except KeyError as exc:
@@ -214,6 +232,31 @@ def graph_entity(entity_id: str) -> dict[str, Any]:
             status_code=404,
             detail=str(exc),
         ) from exc
+
+
+@app.get("/timeline")
+def timeline() -> dict[str, Any]:
+    timeline_data = get_timeline()
+
+    if timeline_data is None:
+        return {
+            "ready": False,
+            "case_id": get_case().case_id,
+            "events": [],
+            "message": (
+                "Timeline has not been built yet. "
+                "Run `python -m scripts.build_timeline`."
+            ),
+        }
+
+    return {
+        "ready": True,
+        "case_id": timeline_data.case_id,
+        "events": [
+            item.model_dump()
+            for item in timeline_data.events
+        ],
+    }
 
 
 @app.post("/investigate")

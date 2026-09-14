@@ -116,10 +116,15 @@ def main() -> None:
         )
 
         print("-" * 72)
+        timeline = evidence_graph.entity_timeline(
+            suspect
+        )
+
         print(
             f"McFarlane graph smoke test: "
             f"{len(evidence)} evidence items, "
-            f"{len(relationships)} relationships"
+            f"{len(relationships)} relationships, "
+            f"{len(timeline)} timeline events"
         )
 
 

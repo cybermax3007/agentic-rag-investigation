@@ -359,6 +359,11 @@ with st.sidebar:
             <div class="value">{summary["relationships"]}</div>
             <div class="label">Relationships</div>
         </div>
+        <br>
+        <div class="case-stat">
+            <div class="value">{summary.get("timeline_events", 0)}</div>
+            <div class="label">Timeline events</div>
+        </div>
         """,
         unsafe_allow_html=True,
     )
@@ -396,6 +401,10 @@ st.markdown(
             <div class="label">Relations</div>
         </div>
         <div class="case-stat">
+            <div class="value">{summary.get("timeline_events", 0)}</div>
+            <div class="label">Events</div>
+        </div>
+        <div class="case-stat">
             <div class="value">RRF</div>
             <div class="label">Hybrid retrieval</div>
         </div>
@@ -410,6 +419,7 @@ tabs = st.tabs(
         "Evidence",
         "Interrogation",
         "Graph",
+        "Timeline",
         "Investigator",
         "Verdict",
     ]
@@ -452,6 +462,8 @@ def graphviz_dot(subgraph: dict) -> str:
             "evidence": ('box', '#f8f4ec'),
             "document": ('folder', '#e4ddd1'),
             "hypothesis": ('diamond', '#ead7d3'),
+            "event": ('box3d', '#e1ddd3'),
+            "time": ('note', '#eee8dc'),
         }
         shape, fill = attrs.get(
             node_type,
@@ -673,6 +685,78 @@ with tabs[2]:
 
 
 with tabs[3]:
+    st.header("Case timeline")
+    st.caption(
+        "Evidence-grounded investigation sequence. "
+        "This separates when a fact enters the investigation from the "
+        "underlying relative time described by the source."
+    )
+
+    timeline_result = api_get("/timeline")
+
+    if not timeline_result["ready"]:
+        st.warning(
+            "Timeline data has not been generated yet. "
+            "Run `python -m scripts.build_timeline`, then restart the backend."
+        )
+    else:
+        events = timeline_result["events"]
+
+        verified_count = sum(
+            event["status"] == "verified"
+            for event in events
+        )
+
+        left, right = st.columns(2)
+        left.metric("Major events", len(events))
+        right.metric("Verified events", verified_count)
+
+        for event in events:
+            css_class = status_class(event["status"])
+            time_label = event.get("time_label") or "Time not specified"
+
+            st.markdown(
+                f"""
+                <div class="evidence-card">
+                    <div class="evidence-meta">
+                        {escape(event["event_id"])} ·
+                        INVESTIGATION ORDER {escape(event["investigation_order"])} ·
+                        <span class="{css_class}">
+                            {escape(event["status"].upper())}
+                        </span>
+                        · {escape(event["source_mode"].upper())}
+                    </div>
+                    <div style="font-family: Georgia, 'Times New Roman', serif;
+                                font-size: 1.05rem; font-weight: 700;
+                                margin-bottom: 0.35rem;">
+                        {escape(event["title"])}
+                    </div>
+                    <div style="margin-bottom: 0.45rem;">
+                        {escape(event["description"])}
+                    </div>
+                    <div class="mono">
+                        {escape(time_label)}
+                    </div>
+                </div>
+                """,
+                unsafe_allow_html=True,
+            )
+
+            st.caption(
+                "Core evidence: "
+                + ", ".join(event["core_evidence_ids"])
+                + (
+                    " · Context: "
+                    + ", ".join(event["context_evidence_ids"])
+                    if event["context_evidence_ids"]
+                    else ""
+                )
+                + " · Documents: "
+                + ", ".join(event["document_ids"])
+            )
+
+
+with tabs[4]:
     st.header("Investigator")
     st.caption(
         "Lock your own prediction first. The Investigator then retrieves "
@@ -979,7 +1063,7 @@ with tabs[3]:
                 st.write(f"— {item}")
 
 
-with tabs[4]:
+with tabs[5]:
     st.header("Final verdict")
     st.caption(
         "Submit a candidate, your conclusion, and the evidence IDs you rely on. "

@@ -219,3 +219,58 @@ class CaseEvidenceCorpus(BaseModel):
     entities: list[CanonicalEntity] = Field(default_factory=list)
     evidence: list[EvidenceClaim] = Field(default_factory=list)
     relationships: list[EntityRelationship] = Field(default_factory=list)
+
+# =====================================================================
+# TIMELINE / EVENT MODELS
+# =====================================================================
+
+TimelineSourceMode = Literal[
+    "observed",
+    "recounted",
+    "mixed",
+]
+
+
+class TimelineEvent(BaseModel):
+    event_id: str
+    title: str
+    description: str
+
+    # Order in which the event/evidence enters the investigation. This is
+    # deliberately separate from the underlying story-time label.
+    investigation_order: int = Field(ge=1)
+
+    # Relative time phrase supported by the source, e.g. "night of the
+    # incident" or "next morning". Null if the source does not support one.
+    time_label: str | None = None
+
+    # Determined from CORE evidence only.
+    status: EvidenceStatus
+    source_mode: TimelineSourceMode
+
+    # Evidence that directly establishes the event itself.
+    core_evidence_ids: list[str] = Field(default_factory=list)
+
+    # Related evidence that explains motive, interpretation, or surrounding
+    # context, but is not used to determine whether the event occurred.
+    context_evidence_ids: list[str] = Field(default_factory=list)
+
+    participant_entity_ids: list[str] = Field(default_factory=list)
+    location_entity_ids: list[str] = Field(default_factory=list)
+    document_ids: list[str] = Field(default_factory=list)
+
+    @property
+    def evidence_ids(self) -> list[str]:
+        """Backward-compatible combined evidence view."""
+        return list(
+            dict.fromkeys(
+                self.core_evidence_ids
+                + self.context_evidence_ids
+            )
+        )
+
+
+class TimelineCorpus(BaseModel):
+    case_id: str
+    timeline_type: Literal["investigation_timeline"] = "investigation_timeline"
+    events: list[TimelineEvent] = Field(default_factory=list)

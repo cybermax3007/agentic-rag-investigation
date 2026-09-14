@@ -4,13 +4,14 @@ from pathlib import Path
 
 import networkx as nx
 
-from backend.models import CaseEvidenceCorpus, CorpusDocument
+from backend.models import CaseEvidenceCorpus, CorpusDocument, TimelineCorpus
 
 
 CANONICAL_CASE_PATH = Path("data/processed/canonical_case.json")
 DOCUMENTS_PATH = Path("data/processed/documents.json")
 GRAPH_OUTPUT_PATH = Path("data/processed/evidence_graph.json")
 GRAPH_AUDIT_PATH = Path("data/processed/evidence_graph_audit.json")
+TIMELINE_PATH = Path("data/processed/timeline_events.json")
 
 
 class EvidenceGraph:
@@ -22,6 +23,8 @@ class EvidenceGraph:
       - evidence
       - document
       - hypothesis
+      - event
+      - time
 
     Edge types:
       - mentioned_in
@@ -30,6 +33,11 @@ class EvidenceGraph:
       - supports
       - contradicts
       - extracted_relationship
+      - supports_event
+      - participates_in
+      - occurs_at_place
+      - occurs_at_time
+      - investigation_before
 
     MultiDiGraph is used because multiple evidence/relationship edges may
     connect the same pair of nodes.
@@ -39,12 +47,15 @@ class EvidenceGraph:
         self,
         canonical_path: Path = CANONICAL_CASE_PATH,
         documents_path: Path = DOCUMENTS_PATH,
+        timeline_path: Path = TIMELINE_PATH,
     ):
         self.canonical_path = canonical_path
         self.documents_path = documents_path
+        self.timeline_path = timeline_path
         self.graph = nx.MultiDiGraph()
 
         self.case: CaseEvidenceCorpus | None = None
+        self.timeline: TimelineCorpus | None = None
         self.documents: dict[str, CorpusDocument] = {}
 
     def load(self) -> None:
@@ -76,6 +87,17 @@ class EvidenceGraph:
             item["document_id"]: CorpusDocument.model_validate(item)
             for item in raw_documents
         }
+
+        if self.timeline_path.exists():
+            with self.timeline_path.open(
+                "r",
+                encoding="utf-8",
+            ) as file:
+                self.timeline = TimelineCorpus.model_validate(
+                    json.load(file)
+                )
+        else:
+            self.timeline = None
 
     @staticmethod
     def _hypothesis_node_id(label: str) -> str:
@@ -225,6 +247,102 @@ class EvidenceGraph:
                     ),
                     edge_type="contradicts",
                     status=evidence.status,
+                )
+
+
+        # -------------------------------------------------------------
+        # Timeline event + time nodes (optional generated artifact)
+        # -------------------------------------------------------------
+        if self.timeline is not None:
+            ordered_events = sorted(
+                self.timeline.events,
+                key=lambda item: item.investigation_order,
+            )
+
+            for event in ordered_events:
+                self.graph.add_node(
+                    event.event_id,
+                    node_type="event",
+                    label=event.title,
+                    title=event.title,
+                    description=event.description,
+                    time_label=event.time_label,
+                    investigation_order=event.investigation_order,
+                    status=event.status,
+                    source_mode=event.source_mode,
+                    core_evidence_ids=event.core_evidence_ids,
+                    context_evidence_ids=event.context_evidence_ids,
+                    evidence_ids=event.evidence_ids,
+                    participant_entity_ids=event.participant_entity_ids,
+                    location_entity_ids=event.location_entity_ids,
+                    document_ids=event.document_ids,
+                )
+
+                for evidence_id in event.core_evidence_ids:
+                    if evidence_id in self.graph:
+                        self.graph.add_edge(
+                            evidence_id,
+                            event.event_id,
+                            key=f"SUPPORT_EVENT_{evidence_id}_{event.event_id}",
+                            edge_type="supports_event",
+                            evidence_role="core",
+                            status=self.graph.nodes[evidence_id].get("status"),
+                        )
+
+                for evidence_id in event.context_evidence_ids:
+                    if evidence_id in self.graph:
+                        self.graph.add_edge(
+                            evidence_id,
+                            event.event_id,
+                            key=f"CONTEXT_EVENT_{evidence_id}_{event.event_id}",
+                            edge_type="context_for_event",
+                            evidence_role="context",
+                            status=self.graph.nodes[evidence_id].get("status"),
+                        )
+
+                for entity_id in event.participant_entity_ids:
+                    if entity_id in self.graph:
+                        self.graph.add_edge(
+                            entity_id,
+                            event.event_id,
+                            key=f"PARTICIPATES_{entity_id}_{event.event_id}",
+                            edge_type="participates_in",
+                        )
+
+                for entity_id in event.location_entity_ids:
+                    if entity_id in self.graph:
+                        self.graph.add_edge(
+                            event.event_id,
+                            entity_id,
+                            key=f"EVENT_PLACE_{event.event_id}_{entity_id}",
+                            edge_type="occurs_at_place",
+                        )
+
+                if event.time_label:
+                    time_id = f"TIME_{event.investigation_order:03d}"
+                    self.graph.add_node(
+                        time_id,
+                        node_type="time",
+                        label=event.time_label,
+                        time_label=event.time_label,
+                        investigation_order=event.investigation_order,
+                    )
+                    self.graph.add_edge(
+                        event.event_id,
+                        time_id,
+                        key=f"EVENT_TIME_{event.event_id}",
+                        edge_type="occurs_at_time",
+                    )
+
+            for earlier, later in zip(
+                ordered_events,
+                ordered_events[1:],
+            ):
+                self.graph.add_edge(
+                    earlier.event_id,
+                    later.event_id,
+                    key=f"INVESTIGATION_BEFORE_{earlier.event_id}_{later.event_id}",
+                    edge_type="investigation_before",
                 )
 
         # -------------------------------------------------------------
@@ -390,6 +508,46 @@ class EvidenceGraph:
             key=lambda item: item["relationship_id"],
         )
 
+
+    def entity_timeline(
+        self,
+        entity_id: str,
+    ) -> list[dict]:
+        if entity_id not in self.graph:
+            return []
+
+        rows = []
+
+        for _, target, _, data in self.graph.out_edges(
+            entity_id,
+            keys=True,
+            data=True,
+        ):
+            if data.get("edge_type") != "participates_in":
+                continue
+
+            node = self.graph.nodes[target]
+            if node.get("node_type") != "event":
+                continue
+
+            rows.append(
+                {
+                    "event_id": target,
+                    "title": node.get("title"),
+                    "description": node.get("description"),
+                    "time_label": node.get("time_label"),
+                    "investigation_order": node.get("investigation_order"),
+                    "status": node.get("status"),
+                    "evidence_ids": node.get("evidence_ids", []),
+                    "document_ids": node.get("document_ids", []),
+                }
+            )
+
+        return sorted(
+            rows,
+            key=lambda item: item["investigation_order"],
+        )
+
     def subgraph_for_entity(
         self,
         entity_id: str,
@@ -418,6 +576,25 @@ class EvidenceGraph:
         ):
             node_ids.add(relation["source_id"])
             node_ids.add(relation["target_id"])
+
+        for event in self.entity_timeline(entity_id):
+            node_ids.add(event["event_id"])
+
+            event_node = self.graph.nodes[event["event_id"]]
+            for evidence_id in event_node.get("evidence_ids", []):
+                if evidence_id in self.graph:
+                    node_ids.add(evidence_id)
+
+            for _, target, _, data in self.graph.out_edges(
+                event["event_id"],
+                keys=True,
+                data=True,
+            ):
+                if data.get("edge_type") in {
+                    "occurs_at_time",
+                    "occurs_at_place",
+                }:
+                    node_ids.add(target)
 
         subgraph = self.graph.subgraph(node_ids)
 

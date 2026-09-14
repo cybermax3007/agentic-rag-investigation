@@ -7,6 +7,7 @@ from google.genai import types
 
 from backend.agents.evidence_store import AgentEvidenceStore
 from backend.agents.schemas import FactCheckResult, InvestigationResult
+from backend.timeline import load_timeline
 
 
 load_dotenv()
@@ -99,6 +100,28 @@ class FactCheckerAgent:
             ]
         )
 
+        timeline = load_timeline()
+        timeline_text = (
+            json.dumps(
+                [
+                    {
+                        "event_id": event.event_id,
+                        "order": event.temporal_order,
+                        "time_label": event.time_label,
+                        "status": event.status,
+                        "title": event.title,
+                        "description": event.description,
+                        "evidence_ids": event.evidence_ids,
+                    }
+                    for event in timeline.events
+                ],
+                indent=2,
+                ensure_ascii=False,
+            )
+            if timeline is not None
+            else "Timeline artifact not available."
+        )
+
         prompt = f"""
 INVESTIGATOR RESULT:
 {json.dumps(investigation.model_dump(), indent=2)}
@@ -109,7 +132,12 @@ ADVERSARIAL SEARCH INTENTS:
 INDEPENDENT ADVERSARIAL RETRIEVAL:
 {evidence_text}
 
+FORMAL CASE TIMELINE:
+{timeline_text}
+
 Attack the Investigator's conclusion using only the supplied evidence.
+The timeline is a structured index over cited evidence; it is not independent
+proof. Resolve any timeline claim back to its EV_### evidence IDs.
 
 Specifically check:
 1. What evidence is weak, testimonial, or inferential?

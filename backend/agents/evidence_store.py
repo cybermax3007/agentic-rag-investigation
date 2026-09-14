@@ -1,6 +1,7 @@
 import json
 import os
 import re
+from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
 import numpy as np
@@ -322,13 +323,41 @@ class AgentEvidenceStore:
     ) -> list[RetrievedEvidence]:
         pool = min(candidate_pool, len(self.evidence))
 
-        bm25_rank = self._bm25_rank(query, pool)
-        semantic_rank = self._semantic_rank(query, pool)
-        graph_rank = (
-            self._graph_rank(query, pool)
-            if include_graph
-            else []
-        )
+        # The retrieval arms are independent. Run them concurrently so the
+        # hybrid layer performs genuine parallel retrieval rather than
+        # sequentially waiting for lexical, dense, and graph signals.
+        max_workers = 3 if include_graph else 2
+
+        with ThreadPoolExecutor(
+            max_workers=max_workers
+        ) as executor:
+            bm25_future = executor.submit(
+                self._bm25_rank,
+                query,
+                pool,
+            )
+            semantic_future = executor.submit(
+                self._semantic_rank,
+                query,
+                pool,
+            )
+            graph_future = (
+                executor.submit(
+                    self._graph_rank,
+                    query,
+                    pool,
+                )
+                if include_graph
+                else None
+            )
+
+            bm25_rank = bm25_future.result()
+            semantic_rank = semantic_future.result()
+            graph_rank = (
+                graph_future.result()
+                if graph_future is not None
+                else []
+            )
 
         fused: dict[int, float] = {}
 
@@ -355,9 +384,9 @@ class AgentEvidenceStore:
         )[:top_k]
 
         source = (
-            "bm25+semantic+graph_rrf"
+            "parallel_bm25+semantic+graph_rrf"
             if graph_rank
-            else "bm25+semantic_rrf"
+            else "parallel_bm25+semantic_rrf"
         )
 
         return [
